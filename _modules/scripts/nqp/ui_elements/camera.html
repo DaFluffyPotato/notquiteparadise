@@ -396,13 +396,13 @@
 
 <div class="viewcode-block" id="Camera.is_in_camera_view"><a class="viewcode-back" href="../../../../scripts.nqp.ui_elements.html#scripts.nqp.ui_elements.camera.Camera.is_in_camera_view">[docs]</a>    <span class="k">def</span> <span class="nf">is_in_camera_view</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="c1"># TODO: implement this</span>
-        <span class="k">return</span> <span class="mi">1</span></div>
+        <span class="k">return</span> <span class="kc">True</span></div>
 
 <div class="viewcode-block" id="Camera.get_render_pos"><a class="viewcode-back" href="../../../../scripts.nqp.ui_elements.html#scripts.nqp.ui_elements.camera.Camera.get_render_pos">[docs]</a>    <span class="k">def</span> <span class="nf">get_render_pos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
         <span class="sd">"""</span>
 <span class="sd">        Converts world position to render position (in pixels) by applying the camera's position.</span>
 <span class="sd">        """</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_x</span> <span class="o">*</span> <span class="n">TILE_SIZE</span><span class="p">,</span> <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_y</span> <span class="o">*</span> <span class="n">TILE_SIZE</span><span class="p">]</span></div>
+        <span class="k">return</span> <span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_x</span> <span class="o">*</span> <span class="n">TILE_SIZE</span><span class="p">,</span> <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_y</span> <span class="o">*</span> <span class="n">TILE_SIZE</span><span class="p">)</span></div>
 
     <span class="c1">############### RENDER CORE #################</span>
 
