@@ -332,7 +332,7 @@
     <span class="n">INTERACTION</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="InputEventType"><a class="viewcode-back" href="../../../../scripts.engine.internal.html#scripts.engine.internal.constant.InputEventType">[docs]</a><span class="k">class</span> <span class="nc">InputEventType</span><span class="p">(</span><span class="n">IntEnum</span><span class="p">):</span>
+<div class="viewcode-block" id="InputEvent"><a class="viewcode-back" href="../../../../scripts.engine.internal.html#scripts.engine.internal.constant.InputEvent">[docs]</a><span class="k">class</span> <span class="nc">InputEvent</span><span class="p">(</span><span class="n">IntEnum</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Custom pygame event names triggered by input. These need to be interpreted into intents.</span>
 <span class="sd">    """</span>
@@ -341,34 +341,33 @@
     <span class="n">SKILL_BAR_CLICK</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">USEREVENT</span> <span class="o">+</span> <span class="mi">2</span></div>
 
 
-<div class="viewcode-block" id="GameEventType"><a class="viewcode-back" href="../../../../scripts.engine.internal.html#scripts.engine.internal.constant.GameEventType">[docs]</a><span class="k">class</span> <span class="nc">GameEventType</span><span class="p">(</span><span class="n">IntEnum</span><span class="p">):</span>
+<div class="viewcode-block" id="GameEvent"><a class="viewcode-back" href="../../../../scripts.engine.internal.html#scripts.engine.internal.constant.GameEvent">[docs]</a><span class="k">class</span> <span class="nc">GameEvent</span><span class="p">(</span><span class="n">IntEnum</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Custom pygame event names triggered by the game</span>
 <span class="sd">    """</span>
 
-    <span class="n">EXIT_MENU</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-    <span class="n">NEW_GAME</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-    <span class="n">LOAD_GAME</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-    <span class="n">EXIT_GAME</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-    <span class="n">WIN_CONDITION_MET</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-    <span class="n">START_GAME</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-    <span class="n">NEW_TURN</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-    <span class="n">END_TURN</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-    <span class="n">NEW_ROUND</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-    <span class="n">END_ROUND</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span></div>
+    <span class="n">EXIT_MENU</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">USEREVENT</span> <span class="o">+</span> <span class="mi">100</span>
+    <span class="n">NEW_GAME</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">USEREVENT</span> <span class="o">+</span> <span class="mi">101</span>
+    <span class="n">LOAD_GAME</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">USEREVENT</span> <span class="o">+</span> <span class="mi">102</span>
+    <span class="n">EXIT_GAME</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">USEREVENT</span> <span class="o">+</span> <span class="mi">103</span>
+    <span class="n">WIN_CONDITION_MET</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">USEREVENT</span> <span class="o">+</span> <span class="mi">104</span>
+    <span class="n">START_GAME</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">USEREVENT</span> <span class="o">+</span> <span class="mi">105</span>
+    <span class="n">NEW_TURN</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">USEREVENT</span> <span class="o">+</span> <span class="mi">106</span>
+    <span class="n">END_TURN</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">USEREVENT</span> <span class="o">+</span> <span class="mi">107</span>
+    <span class="n">NEW_ROUND</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">USEREVENT</span> <span class="o">+</span> <span class="mi">108</span>
+    <span class="n">END_ROUND</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">USEREVENT</span> <span class="o">+</span> <span class="mi">109</span></div>
 
 
-<div class="viewcode-block" id="InteractionEventType"><a class="viewcode-back" href="../../../../scripts.engine.internal.html#scripts.engine.internal.constant.InteractionEventType">[docs]</a><span class="k">class</span> <span class="nc">InteractionEventType</span><span class="p">(</span><span class="n">IntEnum</span><span class="p">):</span>
+<div class="viewcode-block" id="InteractionEvent"><a class="viewcode-back" href="../../../../scripts.engine.internal.html#scripts.engine.internal.constant.InteractionEvent">[docs]</a><span class="k">class</span> <span class="nc">InteractionEvent</span><span class="p">(</span><span class="n">IntEnum</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Custom pygame events to trigger interactions. Think of these as categories for Reaction Triggers.</span>
 <span class="sd">    """</span>
 
-    <span class="n">MOVE</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-    <span class="n">DAMAGE</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-    <span class="n">AFFECT_STAT</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-    <span class="n">AFFECT_COOLDOWN</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-    <span class="n">AFFLICTION</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
-    <span class="n">ALTER_TERRAIN</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span></div>
+    <span class="n">MOVE</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">USEREVENT</span> <span class="o">+</span> <span class="mi">200</span>
+    <span class="n">DAMAGE</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">USEREVENT</span> <span class="o">+</span> <span class="mi">201</span>
+    <span class="n">AFFECT_STAT</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">USEREVENT</span> <span class="o">+</span> <span class="mi">202</span>
+    <span class="n">AFFECT_COOLDOWN</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">USEREVENT</span> <span class="o">+</span> <span class="mi">203</span>
+    <span class="n">AFFLICTION</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">USEREVENT</span> <span class="o">+</span> <span class="mi">204</span></div>
 
 
 <div class="viewcode-block" id="RenderLayer"><a class="viewcode-back" href="../../../../scripts.engine.internal.html#scripts.engine.internal.constant.RenderLayer">[docs]</a><span class="k">class</span> <span class="nc">RenderLayer</span><span class="p">(</span><span class="n">IntEnum</span><span class="p">):</span>
@@ -426,6 +425,7 @@
     <span class="n">UP_LEFT</span> <span class="o">=</span> <span class="n">InputIntentType</span><span class="p">(</span><span class="s2">"up_left"</span><span class="p">)</span>
     <span class="n">DOWN_RIGHT</span> <span class="o">=</span> <span class="n">InputIntentType</span><span class="p">(</span><span class="s2">"down_right"</span><span class="p">)</span>
     <span class="n">DOWN_LEFT</span> <span class="o">=</span> <span class="n">InputIntentType</span><span class="p">(</span><span class="s2">"down_left"</span><span class="p">)</span>
+    <span class="n">CENTRE</span> <span class="o">=</span> <span class="n">InputIntentType</span><span class="p">(</span><span class="s2">"centre"</span><span class="p">)</span>
     <span class="n">CONFIRM</span> <span class="o">=</span> <span class="n">InputIntentType</span><span class="p">(</span><span class="s2">"confirm"</span><span class="p">)</span>
     <span class="n">CANCEL</span> <span class="o">=</span> <span class="n">InputIntentType</span><span class="p">(</span><span class="s2">"cancel"</span><span class="p">)</span>
     <span class="n">EXIT</span> <span class="o">=</span> <span class="n">InputIntentType</span><span class="p">(</span><span class="s2">"exit"</span><span class="p">)</span>
@@ -601,7 +601,8 @@
 <span class="sd">    """</span>
 
     <span class="n">AUTO</span> <span class="o">=</span> <span class="n">TargetingMethodType</span><span class="p">(</span><span class="s2">"auto"</span><span class="p">)</span>
-    <span class="n">TARGET</span> <span class="o">=</span> <span class="n">TargetingMethodType</span><span class="p">(</span><span class="s2">"target"</span><span class="p">)</span></div>
+    <span class="n">TARGET</span> <span class="o">=</span> <span class="n">TargetingMethodType</span><span class="p">(</span><span class="s2">"target"</span><span class="p">)</span>
+    <span class="n">LINE_OF_SIGHT</span> <span class="o">=</span> <span class="n">TargetingMethodType</span><span class="p">(</span><span class="s2">"line"</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="Shape"><a class="viewcode-back" href="../../../../scripts.engine.internal.html#scripts.engine.internal.constant.Shape">[docs]</a><span class="k">class</span> <span class="nc">Shape</span><span class="p">(</span><span class="n">SimpleNamespace</span><span class="p">):</span>
