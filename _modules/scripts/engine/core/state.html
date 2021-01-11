@@ -266,7 +266,20 @@
 <span class="kn">from</span> <span class="nn">scripts.engine.internal.constant</span> <span class="kn">import</span> <span class="n">GameState</span><span class="p">,</span> <span class="n">MAX_SAVES</span><span class="p">,</span> <span class="n">SAVE_PATH</span><span class="p">,</span> <span class="n">VERSION</span>
 <span class="kn">from</span> <span class="nn">scripts.engine.internal.data</span> <span class="kn">import</span> <span class="n">store</span>
 
-<span class="n">_SAVE</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"get_previous"</span><span class="p">,</span>
+    <span class="s2">"get_internal_clock"</span><span class="p">,</span>
+    <span class="s2">"get_active_skill"</span><span class="p">,</span>
+    <span class="s2">"get_current"</span><span class="p">,</span>
+    <span class="s2">"set_active_skill"</span><span class="p">,</span>
+    <span class="s2">"update_clock"</span><span class="p">,</span>
+    <span class="s2">"set_new"</span><span class="p">,</span>
+    <span class="s2">"save_game"</span><span class="p">,</span>
+    <span class="s2">"dump_save_game"</span><span class="p">,</span>
+    <span class="s2">"load_game"</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">_save</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="c1">################### GET ##############################</span>
 
@@ -305,24 +318,27 @@
     <span class="k">return</span> <span class="n">store</span><span class="o">.</span><span class="n">current_game_state</span></div>
 
 
-<span class="c1">################### SET ##############################</span>
-
-
-<div class="viewcode-block" id="set_active_skill"><a class="viewcode-back" href="../../../../scripts.engine.core.html#scripts.engine.core.state.set_active_skill">[docs]</a><span class="k">def</span> <span class="nf">set_active_skill</span><span class="p">(</span><span class="n">skill_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-    <span class="sd">"""</span>
-<span class="sd">    Set the active skill. Used for targeting mode.</span>
-<span class="sd">    """</span>
-    <span class="n">store</span><span class="o">.</span><span class="n">active_skill</span> <span class="o">=</span> <span class="n">skill_name</span></div>
-
-
-<div class="viewcode-block" id="set_active_skill_target"><a class="viewcode-back" href="../../../../scripts.engine.core.html#scripts.engine.core.state.set_active_skill_target">[docs]</a><span class="k">def</span> <span class="nf">set_active_skill_target</span><span class="p">(</span><span class="n">skill_target</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]):</span>
-    <span class="sd">"""</span>
-<span class="sd">    Set the active skill target. Used for targeting mode.</span>
-<span class="sd">    """</span>
-    <span class="n">store</span><span class="o">.</span><span class="n">active_skill_target</span> <span class="o">=</span> <span class="n">skill_target</span></div>
-
-
 <span class="c1">################### MANAGING STATE ###################</span>
+
+
+<div class="viewcode-block" id="initialise_engine"><a class="viewcode-back" href="../../../../scripts.engine.core.html#scripts.engine.core.state.initialise_engine">[docs]</a><span class="k">def</span> <span class="nf">initialise_engine</span><span class="p">():</span>
+    <span class="sd">"""</span>
+<span class="sd">    Initialise engine resources.</span>
+
+<span class="sd">    N.B. Must be called before using the rest of the engine.</span>
+<span class="sd">    """</span>
+    <span class="c1"># load modules that have module level instances the engine needs</span>
+    <span class="kn">import</span> <span class="nn">scripts.engine.core.system</span>
+    <span class="kn">import</span> <span class="nn">scripts.engine.core.ui</span>
+    <span class="kn">import</span> <span class="nn">scripts.engine.internal.data</span>
+    <span class="kn">import</span> <span class="nn">scripts.engine.internal.debug</span>
+    <span class="kn">import</span> <span class="nn">scripts.engine.internal.library</span>
+
+    <span class="c1"># register any Actions that exist within the engine</span>
+    <span class="kn">from</span> <span class="nn">scripts.engine.internal.action</span> <span class="kn">import</span> <span class="n">DelayedSkill</span><span class="p">,</span> <span class="n">Projectile</span><span class="p">,</span> <span class="n">register_action</span>
+
+    <span class="n">register_action</span><span class="p">(</span><span class="n">Projectile</span><span class="p">)</span>
+    <span class="n">register_action</span><span class="p">(</span><span class="n">DelayedSkill</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="update_clock"><a class="viewcode-back" href="../../../../scripts.engine.core.html#scripts.engine.core.state.update_clock">[docs]</a><span class="k">def</span> <span class="nf">update_clock</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
@@ -346,14 +362,30 @@
     <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">log_string</span><span class="p">)</span></div>
 
 
+<div class="viewcode-block" id="set_active_skill"><a class="viewcode-back" href="../../../../scripts.engine.core.html#scripts.engine.core.state.set_active_skill">[docs]</a><span class="k">def</span> <span class="nf">set_active_skill</span><span class="p">(</span><span class="n">skill_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Set the active skill. Used for targeting mode.</span>
+<span class="sd">    """</span>
+    <span class="n">store</span><span class="o">.</span><span class="n">active_skill</span> <span class="o">=</span> <span class="n">skill_name</span></div>
+
+<div class="viewcode-block" id="set_active_skill_target"><a class="viewcode-back" href="../../../../scripts.engine.core.html#scripts.engine.core.state.set_active_skill_target">[docs]</a><span class="k">def</span> <span class="nf">set_active_skill_target</span><span class="p">(</span><span class="n">skill_target</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Set the active skill target. Used for targeting mode.</span>
+<span class="sd">    """</span>
+    <span class="n">store</span><span class="o">.</span><span class="n">active_skill_target</span> <span class="o">=</span> <span class="n">skill_target</span></div>
+
+
+<span class="c1">##################### SAVE AND LOAD #######################</span>
+
+
 <div class="viewcode-block" id="save_game"><a class="viewcode-back" href="../../../../scripts.engine.core.html#scripts.engine.core.state.save_game">[docs]</a><span class="k">def</span> <span class="nf">save_game</span><span class="p">():</span>
     <span class="sd">"""</span>
 <span class="sd">    Serialise the game data to an internal container</span>
 <span class="sd">    """</span>
-    <span class="k">global</span> <span class="n">_SAVE</span>
+    <span class="k">global</span> <span class="n">_save</span>
 
     <span class="c1"># clear existing save data</span>
-    <span class="n">_SAVE</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">_save</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="c1"># get the info needed</span>
     <span class="n">full_save_path</span> <span class="o">=</span> <span class="n">SAVE_PATH</span>
@@ -388,16 +420,16 @@
         <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">full_save_path</span> <span class="o">/</span> <span class="n">save_name</span><span class="p">))</span>
 
     <span class="c1"># update save data</span>
-    <span class="n">_SAVE</span><span class="p">[</span><span class="n">new_save_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">save</span></div>
+    <span class="n">_save</span><span class="p">[</span><span class="n">new_save_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">save</span></div>
 
 
 <div class="viewcode-block" id="dump_save_game"><a class="viewcode-back" href="../../../../scripts.engine.core.html#scripts.engine.core.state.dump_save_game">[docs]</a><span class="k">def</span> <span class="nf">dump_save_game</span><span class="p">():</span>
     <span class="sd">"""</span>
 <span class="sd">    Export the save game data, if it exists, to an external json file</span>
 <span class="sd">    """</span>
-    <span class="k">global</span> <span class="n">_SAVE</span>
+    <span class="k">global</span> <span class="n">_save</span>
 
-    <span class="k">for</span> <span class="n">save_name</span><span class="p">,</span> <span class="n">save_values</span> <span class="ow">in</span> <span class="n">_SAVE</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">save_name</span><span class="p">,</span> <span class="n">save_values</span> <span class="ow">in</span> <span class="n">_save</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
 
         <span class="c1"># write to json</span>
         <span class="n">str_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">SAVE_PATH</span> <span class="o">/</span> <span class="n">save_name</span><span class="p">)</span> <span class="o">+</span> <span class="s2">".json"</span>
@@ -420,8 +452,8 @@
         <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Loading data from a previous version, </span><span class="si">{</span><span class="n">save</span><span class="p">[</span><span class="s1">'version'</span><span class="p">]</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
 
     <span class="c1"># deserialise data</span>
-    <span class="n">new_world</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">deserialise</span><span class="p">(</span><span class="n">save</span><span class="p">[</span><span class="s2">"world"</span><span class="p">])</span>
     <span class="n">store</span><span class="o">.</span><span class="n">deserialise</span><span class="p">(</span><span class="n">save</span><span class="p">[</span><span class="s2">"store"</span><span class="p">])</span>
+    <span class="n">new_world</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">deserialise</span><span class="p">(</span><span class="n">save</span><span class="p">[</span><span class="s2">"world"</span><span class="p">])</span>
 
     <span class="c1"># set the data as the default world</span>
     <span class="n">world</span><span class="o">.</span><span class="n">move_world</span><span class="p">(</span><span class="n">new_world</span><span class="p">)</span>

@@ -261,10 +261,10 @@
 <span class="kn">from</span> <span class="nn">snecs.typedefs</span> <span class="kn">import</span> <span class="n">EntityID</span>
 
 <span class="kn">from</span> <span class="nn">scripts.engine.core</span> <span class="kn">import</span> <span class="n">chronicle</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">utility</span><span class="p">,</span> <span class="n">world</span>
+<span class="kn">from</span> <span class="nn">scripts.engine.core.component</span> <span class="kn">import</span> <span class="n">Knowledge</span><span class="p">,</span> <span class="n">Position</span>
 <span class="kn">from</span> <span class="nn">scripts.engine.core.ui</span> <span class="kn">import</span> <span class="n">ui</span>
 <span class="kn">from</span> <span class="nn">scripts.engine.internal</span> <span class="kn">import</span> <span class="n">debug</span><span class="p">,</span> <span class="n">library</span>
 <span class="kn">from</span> <span class="nn">scripts.engine.internal.action</span> <span class="kn">import</span> <span class="n">Skill</span>
-<span class="kn">from</span> <span class="nn">scripts.engine.internal.component</span> <span class="kn">import</span> <span class="n">Knowledge</span><span class="p">,</span> <span class="n">Position</span>
 <span class="kn">from</span> <span class="nn">scripts.engine.internal.constant</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">Direction</span><span class="p">,</span>
     <span class="n">DirectionType</span><span class="p">,</span>
@@ -276,19 +276,21 @@
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">scripts.engine.world_objects.tile</span> <span class="kn">import</span> <span class="n">Tile</span>
 <span class="kn">from</span> <span class="nn">scripts.nqp</span> <span class="kn">import</span> <span class="n">command</span>
+<span class="kn">from</span> <span class="nn">scripts.nqp.ui_elements.camera</span> <span class="kn">import</span> <span class="n">camera</span>
+<span class="kn">from</span> <span class="nn">scripts.nqp.ui_elements.dungen_viewer</span> <span class="kn">import</span> <span class="n">DungenViewer</span>
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"process_intent"</span><span class="p">]</span>
 
-<span class="kn">from</span> <span class="nn">scripts.nqp.ui_elements.actor_info</span> <span class="kn">import</span> <span class="n">ActorInfo</span>
-<span class="kn">from</span> <span class="nn">scripts.nqp.ui_elements.dungen_viewer</span> <span class="kn">import</span> <span class="n">DungenViewer</span>
-<span class="kn">from</span> <span class="nn">scripts.nqp.ui_elements.camera</span> <span class="kn">import</span> <span class="n">camera</span>
 
-
-<div class="viewcode-block" id="process_intent"><a class="viewcode-back" href="../../../../scripts.nqp.processors.html#scripts.nqp.processors.intent.process_intent">[docs]</a><span class="k">def</span> <span class="nf">process_intent</span><span class="p">(</span><span class="n">intent</span><span class="p">:</span> <span class="n">InputIntentType</span><span class="p">,</span> <span class="n">game_state</span><span class="p">:</span> <span class="n">GameState</span><span class="p">):</span>
+<div class="viewcode-block" id="process_intent"><a class="viewcode-back" href="../../../../scripts.nqp.processors.html#scripts.nqp.processors.intent.process_intent">[docs]</a><span class="k">def</span> <span class="nf">process_intent</span><span class="p">(</span><span class="n">intent</span><span class="p">:</span> <span class="n">InputIntentType</span><span class="p">,</span> <span class="n">game_state</span><span class="p">:</span> <span class="n">GameState</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
     <span class="sd">"""</span>
-<span class="sd">    Process the intent in the context of the game state. Intents are game state sensitive.</span>
+<span class="sd">    Process the intent in the context of the game state. Intents are game state sensitive. If no game state  is</span>
+<span class="sd">    passed the current one will be obtained.</span>
 <span class="sd">    """</span>
     <span class="n">_process_stateless_intents</span><span class="p">(</span><span class="n">intent</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">game_state</span><span class="p">:</span>
+        <span class="n">game_state</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">get_current</span><span class="p">()</span>
 
     <span class="k">if</span> <span class="n">game_state</span> <span class="o">==</span> <span class="n">GameState</span><span class="o">.</span><span class="n">GAME_MAP</span><span class="p">:</span>
         <span class="n">_process_game_map_intents</span><span class="p">(</span><span class="n">intent</span><span class="p">)</span>
@@ -404,7 +406,7 @@
                     <span class="k">if</span> <span class="n">skill</span><span class="o">.</span><span class="n">targeting_method</span> <span class="o">==</span> <span class="n">TargetingMethod</span><span class="o">.</span><span class="n">AUTO</span><span class="p">:</span>
                         <span class="c1"># pass centre as it doesnt matter, the skill will pick the right direction</span>
                         <span class="n">_process_skill_use</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">skill</span><span class="p">,</span> <span class="n">current_tile</span><span class="p">,</span> <span class="n">Direction</span><span class="o">.</span><span class="n">CENTRE</span><span class="p">)</span>
-                    <span class="k">elif</span> <span class="n">skill</span><span class="o">.</span><span class="n">targeting_method</span> <span class="ow">in</span> <span class="p">[</span><span class="n">TargetingMethod</span><span class="o">.</span><span class="n">TARGET</span><span class="p">,</span> <span class="n">TargetingMethod</span><span class="o">.</span><span class="n">LINE_OF_SIGHT</span><span class="p">]:</span>
+                    <span class="k">elif</span> <span class="n">skill</span><span class="o">.</span><span class="n">targeting_method</span> <span class="ow">in</span> <span class="p">[</span><span class="n">TargetingMethod</span><span class="o">.</span><span class="n">TILE</span><span class="p">,</span> <span class="n">TargetingMethod</span><span class="o">.</span><span class="n">LINE_OF_SIGHT</span><span class="p">]:</span>
                         <span class="c1"># trigger targeting overlay</span>
                         <span class="n">state</span><span class="o">.</span><span class="n">set_new</span><span class="p">(</span><span class="n">GameState</span><span class="o">.</span><span class="n">TARGETING</span><span class="p">)</span>
                         <span class="n">state</span><span class="o">.</span><span class="n">set_active_skill</span><span class="p">(</span><span class="n">skill_name</span><span class="p">)</span>
@@ -413,7 +415,6 @@
     <span class="k">elif</span> <span class="n">intent</span> <span class="o">==</span> <span class="n">InputIntent</span><span class="o">.</span><span class="n">ACTOR_INFO_TOGGLE</span><span class="p">:</span>
         <span class="c1"># show</span>
         <span class="n">state</span><span class="o">.</span><span class="n">set_new</span><span class="p">(</span><span class="n">GameState</span><span class="o">.</span><span class="n">MENU</span><span class="p">)</span>
-        <span class="n">actor_info</span><span class="p">:</span> <span class="n">ActorInfo</span> <span class="o">=</span> <span class="n">ui</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">UIElement</span><span class="o">.</span><span class="n">ACTOR_INFO</span><span class="p">)</span>
         <span class="n">ui</span><span class="o">.</span><span class="n">set_element_visibility</span><span class="p">(</span><span class="n">UIElement</span><span class="o">.</span><span class="n">ACTOR_INFO</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 
     <span class="k">elif</span> <span class="n">intent</span> <span class="o">==</span> <span class="n">InputIntent</span><span class="o">.</span><span class="n">EXIT</span><span class="p">:</span>
@@ -478,7 +479,7 @@
 
                 <span class="c1"># resume previous state</span>
                 <span class="n">state</span><span class="o">.</span><span class="n">set_new</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">get_previous</span><span class="p">())</span></div>
-                <span class="c1">#ui.update_targeting_overlay(False)</span>
+                <span class="c1"># ui.update_targeting_overlay(False)</span>
 
 
 <span class="k">def</span> <span class="nf">_process_menu_intents</span><span class="p">(</span><span class="n">intent</span><span class="p">):</span>
@@ -509,7 +510,7 @@
         <span class="c1"># update camera if position changes</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">if</span> <span class="p">(</span><span class="n">pos</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pos</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="o">!=</span> <span class="n">start_pos</span><span class="p">:</span>
-                <span class="c1">#ui.get_element(UIElement.CAMERA).set_target((pos.x, pos.y))</span>
+                <span class="c1"># ui.get_element(UIElement.CAMERA).set_target((pos.x, pos.y))</span>
                 <span class="n">camera</span><span class="o">.</span><span class="n">set_target</span><span class="p">((</span><span class="n">pos</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pos</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
         <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
             <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"Process skill use: tried to call camera but not init`d."</span><span class="p">)</span></div>

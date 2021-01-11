@@ -261,17 +261,17 @@
 <span class="kn">from</span> <span class="nn">snecs.typedefs</span> <span class="kn">import</span> <span class="n">EntityID</span>
 
 <span class="kn">from</span> <span class="nn">scripts.engine.core</span> <span class="kn">import</span> <span class="n">world</span>
-<span class="kn">from</span> <span class="nn">scripts.engine.internal</span> <span class="kn">import</span> <span class="n">library</span>
-<span class="kn">from</span> <span class="nn">scripts.engine.internal.action</span> <span class="kn">import</span> <span class="n">Skill</span>
-<span class="kn">from</span> <span class="nn">scripts.engine.internal.component</span> <span class="kn">import</span> <span class="n">Aesthetic</span><span class="p">,</span> <span class="n">Position</span>
-<span class="kn">from</span> <span class="nn">scripts.engine.internal.constant</span> <span class="kn">import</span> <span class="n">DamageType</span><span class="p">,</span> <span class="n">DirectionType</span><span class="p">,</span> <span class="n">PrimaryStat</span><span class="p">,</span> <span class="n">Shape</span>
-<span class="kn">from</span> <span class="nn">scripts.engine.internal.effect</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="kn">from</span> <span class="nn">scripts.engine.core.component</span> <span class="kn">import</span> <span class="n">Aesthetic</span><span class="p">,</span> <span class="n">Position</span>
+<span class="kn">from</span> <span class="nn">scripts.engine.core.effect</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">AffectCooldownEffect</span><span class="p">,</span>
     <span class="n">ApplyAfflictionEffect</span><span class="p">,</span>
     <span class="n">DamageEffect</span><span class="p">,</span>
     <span class="n">Effect</span><span class="p">,</span>
     <span class="n">MoveActorEffect</span><span class="p">,</span>
 <span class="p">)</span>
+<span class="kn">from</span> <span class="nn">scripts.engine.internal</span> <span class="kn">import</span> <span class="n">library</span>
+<span class="kn">from</span> <span class="nn">scripts.engine.internal.action</span> <span class="kn">import</span> <span class="n">Skill</span>
+<span class="kn">from</span> <span class="nn">scripts.engine.internal.constant</span> <span class="kn">import</span> <span class="n">DamageType</span><span class="p">,</span> <span class="n">DirectionType</span><span class="p">,</span> <span class="n">PrimaryStat</span><span class="p">,</span> <span class="n">Shape</span>
 <span class="kn">from</span> <span class="nn">scripts.engine.world_objects.tile</span> <span class="kn">import</span> <span class="n">Tile</span>
 
 <span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
@@ -294,7 +294,7 @@
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">tile</span><span class="p">,</span> <span class="n">direction</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Move.build_effects"><a class="viewcode-back" href="../../../../scripts.nqp.actions.html#scripts.nqp.actions.skill.Move.build_effects">[docs]</a>    <span class="k">def</span> <span class="nf">build_effects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="n">EntityID</span><span class="p">,</span> <span class="n">potency</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">MoveActorEffect</span><span class="p">]:</span>  <span class="c1"># type:ignore</span>
+<div class="viewcode-block" id="Move._build_effects"><a class="viewcode-back" href="../../../../nqp/actions/skill.html#scripts.nqp.actions.skill.Move._build_effects">[docs]</a>    <span class="k">def</span> <span class="nf">_build_effects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="n">EntityID</span><span class="p">,</span> <span class="n">potency</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">MoveActorEffect</span><span class="p">]:</span>  <span class="c1"># type:ignore</span>
         <span class="sd">"""</span>
 <span class="sd">        Build the effects of this skill applying to a single entity.</span>
 <span class="sd">        """</span>
@@ -319,7 +319,7 @@
 <span class="sd">    Basic attack for an entity</span>
 <span class="sd">    """</span>
 
-<div class="viewcode-block" id="BasicAttack.build_effects"><a class="viewcode-back" href="../../../../scripts.nqp.actions.html#scripts.nqp.actions.skill.BasicAttack.build_effects">[docs]</a>    <span class="k">def</span> <span class="nf">build_effects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="n">EntityID</span><span class="p">,</span> <span class="n">potency</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">DamageEffect</span><span class="p">]:</span>  <span class="c1"># type:ignore</span>
+<div class="viewcode-block" id="BasicAttack._build_effects"><a class="viewcode-back" href="../../../../nqp/actions/skill.html#scripts.nqp.actions.skill.BasicAttack._build_effects">[docs]</a>    <span class="k">def</span> <span class="nf">_build_effects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="n">EntityID</span><span class="p">,</span> <span class="n">potency</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">DamageEffect</span><span class="p">]:</span>  <span class="c1"># type:ignore</span>
         <span class="sd">"""</span>
 <span class="sd">        Build the effects of this skill applying to a single entity.</span>
 <span class="sd">        """</span>
@@ -359,7 +359,7 @@
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">_tile</span><span class="p">,</span> <span class="n">direction</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">move_amount</span> <span class="o">=</span> <span class="mi">2</span></div>
 
-<div class="viewcode-block" id="Lunge.build_effects"><a class="viewcode-back" href="../../../../scripts.nqp.actions.html#scripts.nqp.actions.skill.Lunge.build_effects">[docs]</a>    <span class="k">def</span> <span class="nf">build_effects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="n">EntityID</span><span class="p">,</span> <span class="n">potency</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Effect</span><span class="p">]:</span>
+<div class="viewcode-block" id="Lunge._build_effects"><a class="viewcode-back" href="../../../../nqp/actions/skill.html#scripts.nqp.actions.skill.Lunge._build_effects">[docs]</a>    <span class="k">def</span> <span class="nf">_build_effects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="n">EntityID</span><span class="p">,</span> <span class="n">potency</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Effect</span><span class="p">]:</span>
         <span class="sd">"""</span>
 <span class="sd">        Build the skill effects</span>
 <span class="sd">        """</span>
@@ -445,7 +445,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">reduced_modifier</span> <span class="o">=</span> <span class="mf">0.5</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cone_size</span> <span class="o">=</span> <span class="mi">1</span></div>
 
-<div class="viewcode-block" id="TarAndFeather.build_effects"><a class="viewcode-back" href="../../../../scripts.nqp.actions.html#scripts.nqp.actions.skill.TarAndFeather.build_effects">[docs]</a>    <span class="k">def</span> <span class="nf">build_effects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hit_entity</span><span class="p">:</span> <span class="n">EntityID</span><span class="p">,</span> <span class="n">potency</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Effect</span><span class="p">]:</span>
+<div class="viewcode-block" id="TarAndFeather._build_effects"><a class="viewcode-back" href="../../../../nqp/actions/skill.html#scripts.nqp.actions.skill.TarAndFeather._build_effects">[docs]</a>    <span class="k">def</span> <span class="nf">_build_effects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hit_entity</span><span class="p">:</span> <span class="n">EntityID</span><span class="p">,</span> <span class="n">potency</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Effect</span><span class="p">]:</span>
         <span class="sd">"""</span>
 <span class="sd">        Build the skill effects</span>
 <span class="sd">        """</span>
@@ -507,7 +507,7 @@
 <span class="sd">    Simple projectile attack</span>
 <span class="sd">    """</span>
 
-<div class="viewcode-block" id="Splash.build_effects"><a class="viewcode-back" href="../../../../scripts.nqp.actions.html#scripts.nqp.actions.skill.Splash.build_effects">[docs]</a>    <span class="k">def</span> <span class="nf">build_effects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="n">EntityID</span><span class="p">,</span> <span class="n">potency</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">DamageEffect</span><span class="p">]:</span>  <span class="c1"># type:ignore</span>
+<div class="viewcode-block" id="Splash._build_effects"><a class="viewcode-back" href="../../../../nqp/actions/skill.html#scripts.nqp.actions.skill.Splash._build_effects">[docs]</a>    <span class="k">def</span> <span class="nf">_build_effects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="n">EntityID</span><span class="p">,</span> <span class="n">potency</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">DamageEffect</span><span class="p">]:</span>  <span class="c1"># type:ignore</span>
         <span class="sd">"""</span>
 <span class="sd">        Build the effects of this skill applying to a single entity.</span>
 <span class="sd">        """</span>
@@ -524,6 +524,27 @@
             <span class="n">mod_amount</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
         <span class="p">)</span>
 
+        <span class="k">return</span> <span class="p">[</span><span class="n">damage_effect</span><span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="Lightning"><a class="viewcode-back" href="../../../../scripts.nqp.actions.html#scripts.nqp.actions.skill.Lightning">[docs]</a><span class="k">class</span> <span class="nc">Lightning</span><span class="p">(</span><span class="n">Skill</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Test the Delayed Skill functionality.</span>
+<span class="sd">    """</span>
+
+<div class="viewcode-block" id="Lightning._build_effects"><a class="viewcode-back" href="../../../../nqp/actions/skill.html#scripts.nqp.actions.skill.Lightning._build_effects">[docs]</a>    <span class="k">def</span> <span class="nf">_build_effects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="n">EntityID</span><span class="p">,</span> <span class="n">potency</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">DamageEffect</span><span class="p">]:</span>  <span class="c1"># type:ignore</span>
+        <span class="n">damage_effect</span> <span class="o">=</span> <span class="n">DamageEffect</span><span class="p">(</span>
+            <span class="n">origin</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">,</span>
+            <span class="n">success_effects</span><span class="o">=</span><span class="p">[],</span>
+            <span class="n">failure_effects</span><span class="o">=</span><span class="p">[],</span>
+            <span class="n">target</span><span class="o">=</span><span class="n">entity</span><span class="p">,</span>
+            <span class="n">stat_to_target</span><span class="o">=</span><span class="n">PrimaryStat</span><span class="o">.</span><span class="n">VIGOUR</span><span class="p">,</span>
+            <span class="n">accuracy</span><span class="o">=</span><span class="n">library</span><span class="o">.</span><span class="n">GAME_CONFIG</span><span class="o">.</span><span class="n">base_values</span><span class="o">.</span><span class="n">accuracy</span> <span class="o">+</span> <span class="mi">20</span><span class="p">,</span>
+            <span class="n">damage</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">library</span><span class="o">.</span><span class="n">GAME_CONFIG</span><span class="o">.</span><span class="n">base_values</span><span class="o">.</span><span class="n">damage</span> <span class="o">*</span> <span class="n">potency</span><span class="p">),</span>
+            <span class="n">damage_type</span><span class="o">=</span><span class="n">DamageType</span><span class="o">.</span><span class="n">MUNDANE</span><span class="p">,</span>
+            <span class="n">mod_stat</span><span class="o">=</span><span class="n">PrimaryStat</span><span class="o">.</span><span class="n">CLOUT</span><span class="p">,</span>
+            <span class="n">mod_amount</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">damage_effect</span><span class="p">]</span></div></div>
 </pre></div>
 

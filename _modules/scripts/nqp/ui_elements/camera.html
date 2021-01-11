@@ -266,9 +266,18 @@
 
 <span class="kn">from</span> <span class="nn">scripts.engine.core</span> <span class="kn">import</span> <span class="n">query</span><span class="p">,</span> <span class="n">utility</span><span class="p">,</span> <span class="n">world</span><span class="p">,</span> <span class="n">state</span>
 <span class="kn">from</span> <span class="nn">scripts.engine.core.utility</span> <span class="kn">import</span> <span class="n">clamp</span><span class="p">,</span> <span class="n">convert_tile_string_to_xy</span>
+<span class="kn">from</span> <span class="nn">scripts.engine.core.component</span> <span class="kn">import</span> <span class="n">Aesthetic</span><span class="p">,</span> <span class="n">Position</span>
 <span class="kn">from</span> <span class="nn">scripts.engine.internal</span> <span class="kn">import</span> <span class="n">library</span>
-<span class="kn">from</span> <span class="nn">scripts.engine.internal.component</span> <span class="kn">import</span> <span class="n">Aesthetic</span><span class="p">,</span> <span class="n">Position</span>
-<span class="kn">from</span> <span class="nn">scripts.engine.internal.constant</span> <span class="kn">import</span> <span class="n">TILE_SIZE</span><span class="p">,</span> <span class="n">Height</span><span class="p">,</span> <span class="n">InputIntent</span><span class="p">,</span> <span class="n">InputEvent</span><span class="p">,</span> <span class="n">EventType</span><span class="p">,</span> <span class="n">UIElement</span><span class="p">,</span> <span class="n">GameState</span><span class="p">,</span> <span class="n">TargetingMethod</span>
+<span class="kn">from</span> <span class="nn">scripts.engine.internal.constant</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">TILE_SIZE</span><span class="p">,</span>
+    <span class="n">Height</span><span class="p">,</span>
+    <span class="n">InputIntent</span><span class="p">,</span>
+    <span class="n">InputEventType</span><span class="p">,</span>
+    <span class="n">EventType</span><span class="p">,</span>
+    <span class="n">UIElement</span><span class="p">,</span>
+    <span class="n">GameState</span><span class="p">,</span>
+    <span class="n">TargetingMethod</span>
+<span class="p">)</span>
 <span class="kn">from</span> <span class="nn">scripts.engine.core.ui</span> <span class="kn">import</span> <span class="n">ui</span>
 <span class="kn">from</span> <span class="nn">scripts.nqp.ui_elements.tile_info</span> <span class="kn">import</span> <span class="n">TileInfo</span>
 <span class="kn">from</span> <span class="nn">scripts.nqp</span> <span class="kn">import</span> <span class="n">command</span>
@@ -296,17 +305,6 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">show_all</span> <span class="o">=</span> <span class="kc">False</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">move_edge_size</span> <span class="o">=</span> <span class="mi">4</span>
-
-        <span class="n">rect</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">Rect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_base_width</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_base_height</span><span class="p">)</span>
-
-        <span class="c1"># store this now so we can refer to it later</span>
-        <span class="c1">#game_map = world.get_game_map()</span>
-        <span class="c1">#self.map_width = game_map.width</span>
-        <span class="c1">#self.map_height = game_map.height</span>
-
-        <span class="c1"># determine how many tiles to show; max rows and cols in game map or max we can show based on size</span>
-        <span class="c1">#self.rows = min(rect.width // TILE_SIZE, game_map.height - 1)</span>
-        <span class="c1">#self.columns = min(rect.height // TILE_SIZE, game_map.width - 1)</span>
 
         <span class="c1"># duration of the animation - only used when animating the camera move</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">move_duration</span> <span class="o">=</span> <span class="mf">0.0</span>
@@ -398,13 +396,13 @@
                     <span class="n">state</span><span class="o">.</span><span class="n">set_active_skill_target</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">hovered_tile</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hovered_tile</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
 
                 <span class="c1"># cancel event triggering if the hovered target is invalid in the target mode</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">skill</span><span class="o">.</span><span class="n">targeting_method</span> <span class="o">==</span> <span class="n">TargetingMethod</span><span class="o">.</span><span class="n">TARGET</span><span class="p">):</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">skill</span><span class="o">.</span><span class="n">targeting_method</span> <span class="o">==</span> <span class="n">TargetingMethod</span><span class="o">.</span><span class="n">TILE</span><span class="p">):</span>
                     <span class="n">position</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">get_entitys_component</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">Position</span><span class="p">)</span>
                     <span class="n">dif</span> <span class="o">=</span> <span class="p">(</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">hovered_tile</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">hovered_tile</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
                     <span class="k">if</span> <span class="p">(</span><span class="n">dif</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">skill</span><span class="o">.</span><span class="n">target_directions</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">hovered_tile</span><span class="o">.</span><span class="n">is_visible</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">world</span><span class="o">.</span><span class="n">tile_has_tags</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hovered_tile</span><span class="p">,</span> <span class="n">skill</span><span class="o">.</span><span class="n">target_tags</span><span class="p">)):</span>
                         <span class="k">return</span>
 
-            <span class="n">event</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">Event</span><span class="p">(</span><span class="n">EventType</span><span class="o">.</span><span class="n">INPUT</span><span class="p">,</span> <span class="n">subtype</span><span class="o">=</span><span class="n">InputEvent</span><span class="o">.</span><span class="n">TILE_CLICK</span><span class="p">,</span> <span class="n">tile_pos</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hovered_tile</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hovered_tile</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
+            <span class="n">event</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">Event</span><span class="p">(</span><span class="n">EventType</span><span class="o">.</span><span class="n">INPUT</span><span class="p">,</span> <span class="n">subtype</span><span class="o">=</span><span class="n">InputEventType</span><span class="o">.</span><span class="n">TILE_CLICK</span><span class="p">,</span> <span class="n">tile_pos</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hovered_tile</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hovered_tile</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
             <span class="n">pygame</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">event</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">_update_camera_position</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_delta</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
@@ -449,7 +447,7 @@
             <span class="n">skill</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">get_known_skill</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">active_skill_name</span><span class="p">)</span>
 
             <span class="c1"># if this is a directional attack</span>
-            <span class="k">if</span> <span class="n">skill</span><span class="o">.</span><span class="n">targeting_method</span> <span class="o">==</span> <span class="n">TargetingMethod</span><span class="o">.</span><span class="n">TARGET</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">skill</span><span class="o">.</span><span class="n">targeting_method</span> <span class="o">==</span> <span class="n">TargetingMethod</span><span class="o">.</span><span class="n">TILE</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">direction</span> <span class="ow">in</span> <span class="n">skill</span><span class="o">.</span><span class="n">target_directions</span><span class="p">:</span>
                     <span class="n">target_x</span> <span class="o">=</span> <span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">direction</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
                     <span class="n">target_y</span> <span class="o">=</span> <span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">direction</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>

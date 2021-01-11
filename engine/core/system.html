@@ -235,7 +235,21 @@
     <li class="md-nav__item">
     
     
+      <a href="component.html" class="md-nav__link">Component</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="dungen.html" class="md-nav__link">Dungen</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="effect.html" class="md-nav__link">Effect</a>
       
     
     </li>
@@ -361,6 +375,22 @@
             
   
 <span id="system"></span><h1 id="engine-core-system--page-root">System<a class="headerlink" href="#engine-core-system--page-root" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="scripts.engine.core.system.InteractionEventSubscriber">
+<em class="property">class </em><code class="sig-name descname">InteractionEventSubscriber</code><a class="reference internal" href="../../_modules/scripts/engine/core/system.html#InteractionEventSubscriber"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.core.system.InteractionEventSubscriber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../scripts.engine.internal.html#scripts.engine.internal.event.Subscriber" title="scripts.engine.internal.event.Subscriber"><code class="xref py py-class docutils literal notranslate"><span class="pre">scripts.engine.internal.event.Subscriber</span></code></a></p>
+<p>Handle interaction events.</p>
+<dl class="py method">
+<dt id="scripts.engine.core.system.InteractionEventSubscriber.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/scripts/engine/core/system.html#InteractionEventSubscriber.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.core.system.InteractionEventSubscriber.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+<dl class="py method">
+<dt id="scripts.engine.core.system.InteractionEventSubscriber.process_event">
+<code class="sig-name descname">process_event</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">event</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/scripts/engine/core/system.html#InteractionEventSubscriber.process_event"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.core.system.InteractionEventSubscriber.process_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process game events.</p>
+</dd></dl>
+</dd></dl>
 <dl class="py function">
 <dt id="scripts.engine.core.system.process_activations">
 <code class="sig-name descname">process_activations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/scripts/engine/core/system.html#process_activations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.core.system.process_activations" title="Permalink to this definition">¶</a></dt>
@@ -370,11 +400,6 @@
 <dt id="scripts.engine.core.system.process_fov">
 <code class="sig-name descname">process_fov</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/scripts/engine/core/system.html#process_fov"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.core.system.process_fov" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update FOV for all active entities</p>
-</dd></dl>
-<dl class="py function">
-<dt id="scripts.engine.core.system.process_interaction_event">
-<code class="sig-name descname">process_interaction_event</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">event</span><span class="p">:</span> <span class="n">pygame.event</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/scripts/engine/core/system.html#process_interaction_event"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.core.system.process_interaction_event" title="Permalink to this definition">¶</a></dt>
-<dd><p>Passes an interaction event to the relevant functions.</p>
 </dd></dl>
 <dl class="py function">
 <dt id="scripts.engine.core.system.process_light_map">
@@ -390,6 +415,11 @@
 <dt id="scripts.engine.core.system.reduce_affliction_durations">
 <code class="sig-name descname">reduce_affliction_durations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/scripts/engine/core/system.html#reduce_affliction_durations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.core.system.reduce_affliction_durations" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reduce all affliction durations</p>
+</dd></dl>
+<dl class="py function">
+<dt id="scripts.engine.core.system.reduce_immunity_durations">
+<code class="sig-name descname">reduce_immunity_durations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/scripts/engine/core/system.html#reduce_immunity_durations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.core.system.reduce_immunity_durations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reduce all immunity durations</p>
 </dd></dl>
 <dl class="py function">
 <dt id="scripts.engine.core.system.reduce_lifespan_durations">

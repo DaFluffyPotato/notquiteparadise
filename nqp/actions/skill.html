@@ -325,9 +325,20 @@
 <dd><p>Bases: <a class="reference internal" href="../../scripts.engine.internal.html#scripts.engine.internal.action.Skill" title="scripts.engine.internal.action.Skill"><code class="xref py py-class docutils literal notranslate"><span class="pre">scripts.engine.internal.action.Skill</span></code></a></p>
 <p>Basic attack for an entity</p>
 <dl class="py method">
-<dt id="scripts.nqp.actions.skill.BasicAttack.build_effects">
-<code class="sig-name descname">build_effects</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">entity</span><span class="p">:</span> <span class="n">EntityID</span></em>, <em class="sig-param"><span class="n">potency</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></span> <span class="o">=</span> <span class="default_value">1.0</span></em><span class="sig-paren">)</span> → List<span class="p">[</span>DamageEffect<span class="p">]</span><a class="reference internal" href="../../_modules/scripts/nqp/actions/skill.html#BasicAttack.build_effects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.nqp.actions.skill.BasicAttack.build_effects" title="Permalink to this definition">¶</a></dt>
+<dt id="scripts.nqp.actions.skill.BasicAttack._build_effects">
+<code class="sig-name descname">_build_effects</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">entity</span><span class="p">:</span> <span class="n">EntityID</span></em>, <em class="sig-param"><span class="n">potency</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></span> <span class="o">=</span> <span class="default_value">1.0</span></em><span class="sig-paren">)</span> → List<span class="p">[</span>DamageEffect<span class="p">]</span><a class="reference internal" href="../../_modules/scripts/nqp/actions/skill.html#BasicAttack._build_effects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.nqp.actions.skill.BasicAttack._build_effects" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build the effects of this skill applying to a single entity.</p>
+</dd></dl>
+</dd></dl>
+<dl class="py class">
+<dt id="scripts.nqp.actions.skill.Lightning">
+<em class="property">class </em><code class="sig-name descname">Lightning</code><span class="sig-paren">(</span><em class="sig-param">user: int</em>, <em class="sig-param">target_tile: scripts.engine.world_objects.tile.Tile</em>, <em class="sig-param">direction: NewType.&lt;locals&gt;.new_type</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/scripts/nqp/actions/skill.html#Lightning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.nqp.actions.skill.Lightning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../scripts.engine.internal.html#scripts.engine.internal.action.Skill" title="scripts.engine.internal.action.Skill"><code class="xref py py-class docutils literal notranslate"><span class="pre">scripts.engine.internal.action.Skill</span></code></a></p>
+<p>Test the Delayed Skill functionality.</p>
+<dl class="py method">
+<dt id="scripts.nqp.actions.skill.Lightning._build_effects">
+<code class="sig-name descname">_build_effects</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">entity</span><span class="p">:</span> <span class="n">EntityID</span></em>, <em class="sig-param"><span class="n">potency</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></span> <span class="o">=</span> <span class="default_value">1.0</span></em><span class="sig-paren">)</span> → List<span class="p">[</span>DamageEffect<span class="p">]</span><a class="reference internal" href="../../_modules/scripts/nqp/actions/skill.html#Lightning._build_effects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.nqp.actions.skill.Lightning._build_effects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the effects of this skill applying to a single entity. Must be overridden in subclass.</p>
 </dd></dl>
 </dd></dl>
 <dl class="py class">
@@ -345,13 +356,18 @@ N.B. ignores provided tile.</p>
 </dd></dl>
 <dl class="py method">
 <dt id="scripts.nqp.actions.skill.Lunge._build_cooldown_reduction_effect">
-<code class="sig-name descname">_build_cooldown_reduction_effect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">entity</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span> → <a class="reference internal" href="../../scripts.engine.internal.html#scripts.engine.internal.effect.AffectCooldownEffect" title="scripts.engine.internal.effect.AffectCooldownEffect">scripts.engine.internal.effect.AffectCooldownEffect</a><a class="reference internal" href="../../_modules/scripts/nqp/actions/skill.html#Lunge._build_cooldown_reduction_effect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.nqp.actions.skill.Lunge._build_cooldown_reduction_effect" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">_build_cooldown_reduction_effect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">entity</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span> → <a class="reference internal" href="../../scripts.engine.core.html#scripts.engine.core.effect.AffectCooldownEffect" title="scripts.engine.core.effect.AffectCooldownEffect">scripts.engine.core.effect.AffectCooldownEffect</a><a class="reference internal" href="../../_modules/scripts/nqp/actions/skill.html#Lunge._build_cooldown_reduction_effect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.nqp.actions.skill.Lunge._build_cooldown_reduction_effect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an effect that executes the cooldown effect for the lunge</p>
 </dd></dl>
 <dl class="py method">
 <dt id="scripts.nqp.actions.skill.Lunge._build_damage_effect">
 <code class="sig-name descname">_build_damage_effect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">success_effects</span><span class="p">:</span> <span class="n">List<span class="p">[</span>Effect<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">potency</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></span> <span class="o">=</span> <span class="default_value">1.0</span></em><span class="sig-paren">)</span> → Optional<span class="p">[</span>DamageEffect<span class="p">]</span><a class="reference internal" href="../../_modules/scripts/nqp/actions/skill.html#Lunge._build_damage_effect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.nqp.actions.skill.Lunge._build_damage_effect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the damage effect for the lunge</p>
+</dd></dl>
+<dl class="py method">
+<dt id="scripts.nqp.actions.skill.Lunge._build_effects">
+<code class="sig-name descname">_build_effects</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">entity</span><span class="p">:</span> <span class="n">EntityID</span></em>, <em class="sig-param"><span class="n">potency</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></span> <span class="o">=</span> <span class="default_value">1.0</span></em><span class="sig-paren">)</span> → List<span class="p">[</span>Effect<span class="p">]</span><a class="reference internal" href="../../_modules/scripts/nqp/actions/skill.html#Lunge._build_effects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.nqp.actions.skill.Lunge._build_effects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the skill effects</p>
 </dd></dl>
 <dl class="py method">
 <dt id="scripts.nqp.actions.skill.Lunge._build_move_effect">
@@ -362,11 +378,6 @@ N.B. ignores provided tile.</p>
 <dt id="scripts.nqp.actions.skill.Lunge._find_target">
 <code class="sig-name descname">_find_target</code><span class="sig-paren">(</span><span class="sig-paren">)</span> → Optional<span class="p">[</span>EntityID<span class="p">]</span><a class="reference internal" href="../../_modules/scripts/nqp/actions/skill.html#Lunge._find_target"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.nqp.actions.skill.Lunge._find_target" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find the first entity that will be affected by the lunge</p>
-</dd></dl>
-<dl class="py method">
-<dt id="scripts.nqp.actions.skill.Lunge.build_effects">
-<code class="sig-name descname">build_effects</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">entity</span><span class="p">:</span> <span class="n">EntityID</span></em>, <em class="sig-param"><span class="n">potency</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></span> <span class="o">=</span> <span class="default_value">1.0</span></em><span class="sig-paren">)</span> → List<span class="p">[</span>Effect<span class="p">]</span><a class="reference internal" href="../../_modules/scripts/nqp/actions/skill.html#Lunge.build_effects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.nqp.actions.skill.Lunge.build_effects" title="Permalink to this definition">¶</a></dt>
-<dd><p>Build the skill effects</p>
 </dd></dl>
 </dd></dl>
 <dl class="py class">
@@ -381,13 +392,13 @@ N.B. ignores provided tile.</p>
 <dd><p>Only Move needs an init as it overrides the target tile</p>
 </dd></dl>
 <dl class="py method">
-<dt id="scripts.nqp.actions.skill.Move.build_effects">
-<code class="sig-name descname">build_effects</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">entity</span><span class="p">:</span> <span class="n">EntityID</span></em>, <em class="sig-param"><span class="n">potency</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></span> <span class="o">=</span> <span class="default_value">1.0</span></em><span class="sig-paren">)</span> → List<span class="p">[</span>MoveActorEffect<span class="p">]</span><a class="reference internal" href="../../_modules/scripts/nqp/actions/skill.html#Move.build_effects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.nqp.actions.skill.Move.build_effects" title="Permalink to this definition">¶</a></dt>
+<dt id="scripts.nqp.actions.skill.Move._build_effects">
+<code class="sig-name descname">_build_effects</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">entity</span><span class="p">:</span> <span class="n">EntityID</span></em>, <em class="sig-param"><span class="n">potency</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></span> <span class="o">=</span> <span class="default_value">1.0</span></em><span class="sig-paren">)</span> → List<span class="p">[</span>MoveActorEffect<span class="p">]</span><a class="reference internal" href="../../_modules/scripts/nqp/actions/skill.html#Move._build_effects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.nqp.actions.skill.Move._build_effects" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build the effects of this skill applying to a single entity.</p>
 </dd></dl>
 <dl class="py method">
 <dt id="scripts.nqp.actions.skill.Move.get_animation">
-<code class="sig-name descname">get_animation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">aesthetic</span><span class="p">:</span> <span class="n"><a class="reference internal" href="../../scripts.engine.internal.html#scripts.engine.internal.component.Aesthetic" title="scripts.engine.internal.component.Aesthetic">scripts.engine.internal.component.Aesthetic</a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/scripts/nqp/actions/skill.html#Move.get_animation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.nqp.actions.skill.Move.get_animation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_animation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">aesthetic</span><span class="p">:</span> <span class="n"><a class="reference internal" href="../../scripts.engine.core.html#scripts.engine.core.component.Aesthetic" title="scripts.engine.core.component.Aesthetic">scripts.engine.core.component.Aesthetic</a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/scripts/nqp/actions/skill.html#Move.get_animation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.nqp.actions.skill.Move.get_animation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the animation to play when executing the skill. Defaults to attack sprite. Override in subclass if
 another is needed.</p>
 </dd></dl>
@@ -398,8 +409,8 @@ another is needed.</p>
 <dd><p>Bases: <a class="reference internal" href="../../scripts.engine.internal.html#scripts.engine.internal.action.Skill" title="scripts.engine.internal.action.Skill"><code class="xref py py-class docutils literal notranslate"><span class="pre">scripts.engine.internal.action.Skill</span></code></a></p>
 <p>Simple projectile attack</p>
 <dl class="py method">
-<dt id="scripts.nqp.actions.skill.Splash.build_effects">
-<code class="sig-name descname">build_effects</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">entity</span><span class="p">:</span> <span class="n">EntityID</span></em>, <em class="sig-param"><span class="n">potency</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></span> <span class="o">=</span> <span class="default_value">1.0</span></em><span class="sig-paren">)</span> → List<span class="p">[</span>DamageEffect<span class="p">]</span><a class="reference internal" href="../../_modules/scripts/nqp/actions/skill.html#Splash.build_effects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.nqp.actions.skill.Splash.build_effects" title="Permalink to this definition">¶</a></dt>
+<dt id="scripts.nqp.actions.skill.Splash._build_effects">
+<code class="sig-name descname">_build_effects</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">entity</span><span class="p">:</span> <span class="n">EntityID</span></em>, <em class="sig-param"><span class="n">potency</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></span> <span class="o">=</span> <span class="default_value">1.0</span></em><span class="sig-paren">)</span> → List<span class="p">[</span>DamageEffect<span class="p">]</span><a class="reference internal" href="../../_modules/scripts/nqp/actions/skill.html#Splash._build_effects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.nqp.actions.skill.Splash._build_effects" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build the effects of this skill applying to a single entity.</p>
 </dd></dl>
 </dd></dl>
@@ -414,8 +425,8 @@ another is needed.</p>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 <dl class="py method">
-<dt id="scripts.nqp.actions.skill.TarAndFeather.build_effects">
-<code class="sig-name descname">build_effects</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hit_entity</span><span class="p">:</span> <span class="n">EntityID</span></em>, <em class="sig-param"><span class="n">potency</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></span> <span class="o">=</span> <span class="default_value">1.0</span></em><span class="sig-paren">)</span> → List<span class="p">[</span>Effect<span class="p">]</span><a class="reference internal" href="../../_modules/scripts/nqp/actions/skill.html#TarAndFeather.build_effects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.nqp.actions.skill.TarAndFeather.build_effects" title="Permalink to this definition">¶</a></dt>
+<dt id="scripts.nqp.actions.skill.TarAndFeather._build_effects">
+<code class="sig-name descname">_build_effects</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hit_entity</span><span class="p">:</span> <span class="n">EntityID</span></em>, <em class="sig-param"><span class="n">potency</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></span> <span class="o">=</span> <span class="default_value">1.0</span></em><span class="sig-paren">)</span> → List<span class="p">[</span>Effect<span class="p">]</span><a class="reference internal" href="../../_modules/scripts/nqp/actions/skill.html#TarAndFeather._build_effects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.nqp.actions.skill.TarAndFeather._build_effects" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build the skill effects</p>
 </dd></dl>
 </dd></dl>

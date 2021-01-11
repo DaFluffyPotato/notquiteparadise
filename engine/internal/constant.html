@@ -57,7 +57,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Data Store" href="data.html" />
-    <link rel="prev" title="Component" href="component.html" />
+    <link rel="prev" title="Action" href="action.html" />
   
    
 
@@ -242,13 +242,6 @@
     <li class="md-nav__item">
     
     
-      <a href="component.html" class="md-nav__link">Component</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     <label class="md-nav__link md-nav__link--active" for="__toc"> Constant </label>
     
@@ -289,7 +282,7 @@
     <li class="md-nav__item">
     
     
-      <a href="effect.html" class="md-nav__link">Effect</a>
+      <a href="event.html" class="md-nav__link">Event</a>
       
     
     </li>
@@ -392,8 +385,8 @@
 <p>The types of possible customer pygame events.</p>
 </dd></dl>
 <dl class="py class">
-<dt id="scripts.engine.internal.constant.GameEvent">
-<em class="property">class </em><code class="sig-name descname">GameEvent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/scripts/engine/internal/constant.html#GameEvent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.internal.constant.GameEvent" title="Permalink to this definition">¶</a></dt>
+<dt id="scripts.engine.internal.constant.GameEventType">
+<em class="property">class </em><code class="sig-name descname">GameEventType</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/scripts/engine/internal/constant.html#GameEventType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.internal.constant.GameEventType" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.IntEnum</span></code></a></p>
 <p>Custom pygame event names triggered by the game</p>
 </dd></dl>
@@ -416,8 +409,8 @@
 <p>The value of each hit type. The value is the starting amount.</p>
 </dd></dl>
 <dl class="py class">
-<dt id="scripts.engine.internal.constant.InputEvent">
-<em class="property">class </em><code class="sig-name descname">InputEvent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/scripts/engine/internal/constant.html#InputEvent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.internal.constant.InputEvent" title="Permalink to this definition">¶</a></dt>
+<dt id="scripts.engine.internal.constant.InputEventType">
+<em class="property">class </em><code class="sig-name descname">InputEventType</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/scripts/engine/internal/constant.html#InputEventType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.internal.constant.InputEventType" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.IntEnum</span></code></a></p>
 <p>Custom pygame event names triggered by input. These need to be interpreted into intents.</p>
 </dd></dl>
@@ -428,8 +421,8 @@
 <p>Values of the conversion from input to intent. Strings.</p>
 </dd></dl>
 <dl class="py class">
-<dt id="scripts.engine.internal.constant.InteractionEvent">
-<em class="property">class </em><code class="sig-name descname">InteractionEvent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/scripts/engine/internal/constant.html#InteractionEvent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.internal.constant.InteractionEvent" title="Permalink to this definition">¶</a></dt>
+<dt id="scripts.engine.internal.constant.InteractionEventType">
+<em class="property">class </em><code class="sig-name descname">InteractionEventType</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/scripts/engine/internal/constant.html#InteractionEventType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.internal.constant.InteractionEventType" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.IntEnum</span></code></a></p>
 <p>Custom pygame events to trigger interactions. Think of these as categories for Reaction Triggers.</p>
 </dd></dl>
@@ -483,12 +476,6 @@ N.B. does not use base move_cost</p>
 <p>When to trigger the afflictions</p>
 </dd></dl>
 <dl class="py class">
-<dt id="scripts.engine.internal.constant.TargetTag">
-<em class="property">class </em><code class="sig-name descname">TargetTag</code><a class="reference internal" href="../../_modules/scripts/engine/internal/constant.html#TargetTag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.internal.constant.TargetTag" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/types.html#types.SimpleNamespace" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">types.SimpleNamespace</span></code></a></p>
-<p>Types of target</p>
-</dd></dl>
-<dl class="py class">
 <dt id="scripts.engine.internal.constant.TargetingMethod">
 <em class="property">class </em><code class="sig-name descname">TargetingMethod</code><a class="reference internal" href="../../_modules/scripts/engine/internal/constant.html#TargetingMethod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.internal.constant.TargetingMethod" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/types.html#types.SimpleNamespace" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">types.SimpleNamespace</span></code></a></p>
@@ -505,6 +492,12 @@ N.B. does not use base move_cost</p>
 <em class="property">class </em><code class="sig-name descname">TileCategory</code><a class="reference internal" href="../../_modules/scripts/engine/internal/constant.html#TileCategory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.internal.constant.TileCategory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/types.html#types.SimpleNamespace" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">types.SimpleNamespace</span></code></a></p>
 <p>The type of tile to be placed. Used in Dungen only.</p>
+</dd></dl>
+<dl class="py class">
+<dt id="scripts.engine.internal.constant.TileTag">
+<em class="property">class </em><code class="sig-name descname">TileTag</code><a class="reference internal" href="../../_modules/scripts/engine/internal/constant.html#TileTag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.internal.constant.TileTag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/types.html#types.SimpleNamespace" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">types.SimpleNamespace</span></code></a></p>
+<p>Tags identifying a situation on a Tile.</p>
 </dd></dl>
 <dl class="py class">
 <dt id="scripts.engine.internal.constant.TraitGroup">
@@ -536,7 +529,7 @@ N.B. does not use base move_cost</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="component.html" title="Component"
+            <a href="action.html" title="Action"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -545,7 +538,7 @@ N.B. does not use base move_cost</p>
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> Component </span>
+                      class="md-footer-nav__direction"> Previous </span> Action </span>
               </div>
             </a>
           
