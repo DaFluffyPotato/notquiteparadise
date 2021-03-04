@@ -354,13 +354,17 @@
 <dd><p>Bases: <a class="reference internal" href="scripts.engine.internal.html#scripts.engine.internal.skill_modifier.SkillModifier" title="scripts.engine.internal.skill_modifier.SkillModifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">scripts.engine.internal.skill_modifier.SkillModifier</span></code></a></p>
 <dl class="py attribute">
 <dt id="scripts.nqp.actions.blessing.AttackMove.add_effects">
-<code class="sig-name descname">add_effects</code><em class="property">: List<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></em><a class="headerlink" href="#scripts.nqp.actions.blessing.AttackMove.add_effects" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_effects</code><em class="property">: List<span class="p">[</span>Dict<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">, </span>Any<span class="p">]</span><span class="p">]</span></em><a class="headerlink" href="#scripts.nqp.actions.blessing.AttackMove.add_effects" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 <dl class="py method">
 <dt id="scripts.nqp.actions.blessing.AttackMove.apply">
 <code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">effects</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="scripts.engine.core.html#scripts.engine.core.effect.Effect" title="scripts.engine.core.effect.Effect">scripts.engine.core.effect.Effect</a><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">owner</span></em>, <em class="sig-param"><span class="n">target</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/nqp/actions/blessing.html#AttackMove.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.nqp.actions.blessing.AttackMove.apply" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is the core function of the blessing. It takes the effect stack and modifies it with the blessing.</p>
 </dd></dl>
+<dl class="py attribute">
+<dt id="scripts.nqp.actions.blessing.AttackMove.conflicts">
+<code class="sig-name descname">conflicts</code><em class="property">: List<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></em><a class="headerlink" href="#scripts.nqp.actions.blessing.AttackMove.conflicts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 <dl class="py attribute">
 <dt id="scripts.nqp.actions.blessing.AttackMove.description">
 <code class="sig-name descname">description</code><em class="property">: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></em><a class="headerlink" href="#scripts.nqp.actions.blessing.AttackMove.description" title="Permalink to this definition">¶</a></dt>
@@ -393,6 +397,10 @@
 <dt id="scripts.nqp.actions.blessing.AttackMove.remove_effects">
 <code class="sig-name descname">remove_effects</code><em class="property">: List<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></em><a class="headerlink" href="#scripts.nqp.actions.blessing.AttackMove.remove_effects" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+<dl class="py attribute">
+<dt id="scripts.nqp.actions.blessing.AttackMove.skill_types">
+<code class="sig-name descname">skill_types</code><em class="property">: List<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></em><a class="headerlink" href="#scripts.nqp.actions.blessing.AttackMove.skill_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 </dd></dl>
 <dl class="py class">
 <dt id="scripts.nqp.actions.blessing.MoveFast">
@@ -400,7 +408,11 @@
 <dd><p>Bases: <a class="reference internal" href="scripts.engine.internal.html#scripts.engine.internal.skill_modifier.SkillModifier" title="scripts.engine.internal.skill_modifier.SkillModifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">scripts.engine.internal.skill_modifier.SkillModifier</span></code></a></p>
 <dl class="py attribute">
 <dt id="scripts.nqp.actions.blessing.MoveFast.add_effects">
-<code class="sig-name descname">add_effects</code><em class="property">: List<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></em><a class="headerlink" href="#scripts.nqp.actions.blessing.MoveFast.add_effects" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_effects</code><em class="property">: List<span class="p">[</span>Dict<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">, </span>Any<span class="p">]</span><span class="p">]</span></em><a class="headerlink" href="#scripts.nqp.actions.blessing.MoveFast.add_effects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt id="scripts.nqp.actions.blessing.MoveFast.conflicts">
+<code class="sig-name descname">conflicts</code><em class="property">: List<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></em><a class="headerlink" href="#scripts.nqp.actions.blessing.MoveFast.conflicts" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 <dl class="py attribute">
 <dt id="scripts.nqp.actions.blessing.MoveFast.description">
@@ -434,6 +446,10 @@
 <dt id="scripts.nqp.actions.blessing.MoveFast.remove_effects">
 <code class="sig-name descname">remove_effects</code><em class="property">: List<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></em><a class="headerlink" href="#scripts.nqp.actions.blessing.MoveFast.remove_effects" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+<dl class="py attribute">
+<dt id="scripts.nqp.actions.blessing.MoveFast.skill_types">
+<code class="sig-name descname">skill_types</code><em class="property">: List<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></em><a class="headerlink" href="#scripts.nqp.actions.blessing.MoveFast.skill_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 </dd></dl>
 <dl class="py class">
 <dt id="scripts.nqp.actions.blessing.NoMove">
@@ -441,7 +457,11 @@
 <dd><p>Bases: <a class="reference internal" href="scripts.engine.internal.html#scripts.engine.internal.skill_modifier.SkillModifier" title="scripts.engine.internal.skill_modifier.SkillModifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">scripts.engine.internal.skill_modifier.SkillModifier</span></code></a></p>
 <dl class="py attribute">
 <dt id="scripts.nqp.actions.blessing.NoMove.add_effects">
-<code class="sig-name descname">add_effects</code><em class="property">: List<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></em><a class="headerlink" href="#scripts.nqp.actions.blessing.NoMove.add_effects" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_effects</code><em class="property">: List<span class="p">[</span>Dict<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">, </span>Any<span class="p">]</span><span class="p">]</span></em><a class="headerlink" href="#scripts.nqp.actions.blessing.NoMove.add_effects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt id="scripts.nqp.actions.blessing.NoMove.conflicts">
+<code class="sig-name descname">conflicts</code><em class="property">: List<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></em><a class="headerlink" href="#scripts.nqp.actions.blessing.NoMove.conflicts" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 <dl class="py attribute">
 <dt id="scripts.nqp.actions.blessing.NoMove.description">
@@ -474,6 +494,10 @@
 <dl class="py attribute">
 <dt id="scripts.nqp.actions.blessing.NoMove.remove_effects">
 <code class="sig-name descname">remove_effects</code><em class="property">: List<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></em><a class="headerlink" href="#scripts.nqp.actions.blessing.NoMove.remove_effects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt id="scripts.nqp.actions.blessing.NoMove.skill_types">
+<code class="sig-name descname">skill_types</code><em class="property">: List<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></em><a class="headerlink" href="#scripts.nqp.actions.blessing.NoMove.skill_types" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 </dd></dl>
 

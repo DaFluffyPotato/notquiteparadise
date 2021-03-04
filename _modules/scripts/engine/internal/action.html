@@ -342,7 +342,9 @@
     <span class="n">is_delayed</span><span class="p">:</span> <span class="nb">bool</span>  <span class="c1"># usable by Tile, Auto  - Doesnt make sense for Direction to have a delayed cast.</span>
     <span class="n">delayed_skill_data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">DelayedSkillData</span><span class="p">]</span>
 
+    <span class="c1"># blessing related attributes</span>
     <span class="n">blessings</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">SkillModifier</span><span class="p">]</span>
+    <span class="n">types</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
 
 <div class="viewcode-block" id="Skill.__init__"><a class="viewcode-back" href="../../../../scripts.engine.internal.html#scripts.engine.internal.action.Skill.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="n">EntityID</span><span class="p">,</span> <span class="n">target_tile</span><span class="p">:</span> <span class="n">Tile</span><span class="p">,</span> <span class="n">direction</span><span class="p">:</span> <span class="n">DirectionType</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">:</span> <span class="n">EntityID</span> <span class="o">=</span> <span class="n">user</span>
@@ -361,7 +363,7 @@
 <span class="sd">        Build the effects of this skill applying to a single entity. This function will be used to apply any dynamic tweaks to the effects stack after the subclass generates its stack.</span>
 <span class="sd">        """</span>
         <span class="n">skill_blessings</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">get_entitys_component</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="n">Knowledge</span><span class="p">)</span><span class="o">.</span><span class="n">skill_blessings</span>
-        <span class="n">relevant_blessings</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">relevant_blessings</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">SkillModifier</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="ow">in</span> <span class="n">skill_blessings</span><span class="p">:</span>
             <span class="n">relevant_blessings</span> <span class="o">=</span> <span class="n">skill_blessings</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">blessing</span> <span class="ow">in</span> <span class="n">relevant_blessings</span><span class="p">:</span>

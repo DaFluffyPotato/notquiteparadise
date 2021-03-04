@@ -475,6 +475,10 @@ times.</p>
 <dt id="scripts.engine.internal.action.Skill.time_cost">
 <code class="sig-name descname">time_cost</code><em class="property">: <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></em><a class="headerlink" href="#scripts.engine.internal.action.Skill.time_cost" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+<dl class="py attribute">
+<dt id="scripts.engine.internal.action.Skill.types">
+<code class="sig-name descname">types</code><em class="property">: List<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></em><a class="headerlink" href="#scripts.engine.internal.action.Skill.types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 <dl class="py method">
 <dt id="scripts.engine.internal.action.Skill.use">
 <code class="sig-name descname">use</code><span class="sig-paren">(</span><span class="sig-paren">)</span> → <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="reference internal" href="_modules/scripts/engine/internal/action.html#Skill.use"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.internal.action.Skill.use" title="Permalink to this definition">¶</a></dt>
@@ -2901,7 +2905,7 @@ version of the object or raise a <code class="docutils literal notranslate"><spa
 </dd></dl>
 <dl class="py attribute">
 <dt id="scripts.engine.internal.skill_modifier.SkillModifier.add_effects">
-<code class="sig-name descname">add_effects</code><em class="property">: List<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></em><a class="headerlink" href="#scripts.engine.internal.skill_modifier.SkillModifier.add_effects" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_effects</code><em class="property">: List<span class="p">[</span>Dict<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">, </span>Any<span class="p">]</span><span class="p">]</span></em><a class="headerlink" href="#scripts.engine.internal.skill_modifier.SkillModifier.add_effects" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 <dl class="py method">
 <dt id="scripts.engine.internal.skill_modifier.SkillModifier.apply">
@@ -2909,8 +2913,12 @@ version of the object or raise a <code class="docutils literal notranslate"><spa
 <dd><p>This is the core function of the blessing. It takes the effect stack and modifies it with the blessing.</p>
 </dd></dl>
 <dl class="py attribute">
+<dt id="scripts.engine.internal.skill_modifier.SkillModifier.conflicts">
+<code class="sig-name descname">conflicts</code><em class="property">: List<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></em><a class="headerlink" href="#scripts.engine.internal.skill_modifier.SkillModifier.conflicts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
 <dt id="scripts.engine.internal.skill_modifier.SkillModifier.custom_args">
-<code class="sig-name descname">custom_args</code><em class="property"> = {}</em><a class="headerlink" href="#scripts.engine.internal.skill_modifier.SkillModifier.custom_args" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">custom_args</code><em class="property">: Dict<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">, </span>Any<span class="p">]</span></em><em class="property"> = {}</em><a class="headerlink" href="#scripts.engine.internal.skill_modifier.SkillModifier.custom_args" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 <dl class="py attribute">
 <dt id="scripts.engine.internal.skill_modifier.SkillModifier.description">
@@ -2959,6 +2967,10 @@ version of the object or raise a <code class="docutils literal notranslate"><spa
 <code class="sig-name descname">set_level</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">level</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/engine/internal/skill_modifier.html#SkillModifier.set_level"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.internal.skill_modifier.SkillModifier.set_level" title="Permalink to this definition">¶</a></dt>
 <dd><p>Refreshes the class attributes with the data for the specific blessing level.</p>
 </dd></dl>
+<dl class="py attribute">
+<dt id="scripts.engine.internal.skill_modifier.SkillModifier.skill_types">
+<code class="sig-name descname">skill_types</code><em class="property">: List<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></em><a class="headerlink" href="#scripts.engine.internal.skill_modifier.SkillModifier.skill_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 </dd></dl>
 
 

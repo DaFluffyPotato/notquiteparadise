@@ -271,10 +271,12 @@
 
     <span class="n">level</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">removable</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">conflicts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">skill_types</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
 
     <span class="c1"># remove/add are applied when the blessing is applied</span>
     <span class="n">remove_effects</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
-    <span class="n">add_effects</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">add_effects</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span>
 
     <span class="c1"># modifications are applied when the effects are built</span>
     <span class="n">modify_effects_set</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span>
@@ -282,7 +284,7 @@
     <span class="n">modify_effects_tweak_percent</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span>
 
     <span class="c1"># custom args (set by child if JSON doesn't cover the argument needs)</span>
-    <span class="n">custom_args</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">custom_args</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 
 <div class="viewcode-block" id="SkillModifier.__init__"><a class="viewcode-back" href="../../../../scripts.engine.internal.html#scripts.engine.internal.skill_modifier.SkillModifier.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">owner</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">owner</span> <span class="o">=</span> <span class="n">owner</span></div>
@@ -385,13 +387,13 @@
                 <span class="n">effects</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">effect</span><span class="p">)</span>
 
         <span class="c1"># add effects to the stack</span>
-        <span class="k">for</span> <span class="n">effect</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_effects</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">add_effect</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_effects</span><span class="p">:</span>
             <span class="c1"># build the effect creation arguments from the config</span>
             <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'origin'</span><span class="p">:</span> <span class="n">owner</span><span class="p">,</span> <span class="s1">'target'</span><span class="p">:</span> <span class="n">target</span><span class="p">,</span> <span class="s1">'success_effects'</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">'failure_effects'</span><span class="p">:</span> <span class="p">[]}</span>
-            <span class="n">args</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">effect</span><span class="p">[</span><span class="s1">'args'</span><span class="p">])</span>
-            <span class="k">if</span> <span class="n">effect</span><span class="p">[</span><span class="s1">'effect_id'</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">custom_args</span><span class="p">:</span>
+            <span class="n">args</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">add_effect</span><span class="p">[</span><span class="s1">'args'</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">add_effect</span><span class="p">[</span><span class="s1">'effect_id'</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">custom_args</span><span class="p">:</span>
                 <span class="n">args</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">custom_args</span><span class="p">)</span>
-            <span class="n">effects</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">EFFECTS</span><span class="p">[</span><span class="n">effect</span><span class="p">[</span><span class="s1">'effect_id'</span><span class="p">]](</span><span class="o">**</span><span class="n">args</span><span class="p">))</span></div></div>
+            <span class="n">effects</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">EFFECTS</span><span class="p">[</span><span class="n">add_effect</span><span class="p">[</span><span class="s1">'effect_id'</span><span class="p">]](</span><span class="o">**</span><span class="n">args</span><span class="p">))</span></div></div>
 </pre></div>
 
           </article>
