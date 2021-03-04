@@ -284,6 +284,7 @@
 
     <span class="kn">from</span> <span class="nn">scripts.engine.internal.action</span> <span class="kn">import</span> <span class="n">Affliction</span><span class="p">,</span> <span class="n">Behaviour</span><span class="p">,</span> <span class="n">Skill</span>
     <span class="kn">from</span> <span class="nn">scripts.engine.internal.definition</span> <span class="kn">import</span> <span class="n">TraitSpritePathsData</span><span class="p">,</span> <span class="n">TraitSpritesData</span>
+    <span class="kn">from</span> <span class="nn">scripts.engine.internal.skill_modifier</span> <span class="kn">import</span> <span class="n">SkillModifier</span>
 
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
@@ -701,7 +702,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">cooldowns</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">cooldowns</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">skill_names</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># TODO - do we even need this anymore?</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">skills</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Type</span><span class="p">[</span><span class="n">Skill</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># dont set skills here, use learn skill</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">skill_blessings</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Blessing</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">skill_blessings</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">SkillModifier</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 
         <span class="k">for</span> <span class="n">skill_class</span> <span class="ow">in</span> <span class="n">skills</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">skill_class</span><span class="p">,</span> <span class="n">_add_to_order</span><span class="p">,</span> <span class="n">_set_cooldown</span><span class="p">)</span></div>
@@ -723,7 +724,7 @@
         <span class="k">if</span> <span class="n">set_cooldown</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">cooldowns</span><span class="p">[</span><span class="n">skill</span><span class="o">.</span><span class="vm">__name__</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span></div>
 
-<div class="viewcode-block" id="Knowledge.add_blessing"><a class="viewcode-back" href="../../../../scripts.engine.core.html#scripts.engine.core.component.Knowledge.add_blessing">[docs]</a>    <span class="k">def</span> <span class="nf">add_blessing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">skill</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">Skill</span><span class="p">],</span> <span class="n">blessing</span><span class="p">:</span> <span class="n">Blessing</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<div class="viewcode-block" id="Knowledge.add_blessing"><a class="viewcode-back" href="../../../../scripts.engine.core.html#scripts.engine.core.component.Knowledge.add_blessing">[docs]</a>    <span class="k">def</span> <span class="nf">add_blessing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">skill</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">Skill</span><span class="p">],</span> <span class="n">blessing</span><span class="p">:</span> <span class="n">SkillModifier</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="sd">"""</span>
 <span class="sd">        Add a new blessing.</span>
 <span class="sd">        """</span>
@@ -748,13 +749,15 @@
             <span class="k">return</span> <span class="kc">False</span>
         <span class="k">elif</span> <span class="nb">set</span><span class="p">(</span><span class="n">blessing</span><span class="o">.</span><span class="n">conflicts</span><span class="p">)</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">blessing_names</span><span class="p">):</span>
             <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="nb">set</span><span class="p">(</span><span class="n">blessing</span><span class="o">.</span><span class="n">skill_types</span><span class="p">)</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">skill</span><span class="o">.</span><span class="n">types</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="kc">False</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># finally add the blessing if it passed all of the other cases</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">skill_blessings</span><span class="p">[</span><span class="n">skill</span><span class="o">.</span><span class="vm">__name__</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">blessing</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="kc">True</span></div>
 
-<div class="viewcode-block" id="Knowledge.remove_blessing"><a class="viewcode-back" href="../../../../scripts.engine.core.html#scripts.engine.core.component.Knowledge.remove_blessing">[docs]</a>    <span class="k">def</span> <span class="nf">remove_blessing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">skill</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">Skill</span><span class="p">],</span> <span class="n">remove_blessing</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">Blessing</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<div class="viewcode-block" id="Knowledge.remove_blessing"><a class="viewcode-back" href="../../../../scripts.engine.core.html#scripts.engine.core.component.Knowledge.remove_blessing">[docs]</a>    <span class="k">def</span> <span class="nf">remove_blessing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">skill</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">Skill</span><span class="p">],</span> <span class="n">remove_blessing</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">SkillModifier</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="sd">"""</span>
 <span class="sd">        Attempt to remove a blessing.</span>
 <span class="sd">        """</span>

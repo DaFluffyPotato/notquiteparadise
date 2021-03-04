@@ -255,17 +255,17 @@
 <span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
 <span class="kn">from</span> <span class="nn">scripts.engine.core.effect</span> <span class="kn">import</span> <span class="n">Effect</span>
-<span class="kn">from</span> <span class="nn">scripts.engine.core.blessing</span> <span class="kn">import</span> <span class="n">Blessing</span>
+<span class="kn">from</span> <span class="nn">scripts.engine.internal.skill_modifier</span> <span class="kn">import</span> <span class="n">SkillModifier</span>
 
 <span class="sd">"""</span>
 <span class="sd">Use Blessing.custom_args to set custom effect initialization for a blessing if</span>
 <span class="sd">an object needs to be used (since objects can't be created in JSON).</span>
 <span class="sd">"""</span>
 
-<div class="viewcode-block" id="MoveFast"><a class="viewcode-back" href="../../../../scripts.nqp.actions.html#scripts.nqp.actions.blessing.MoveFast">[docs]</a><span class="k">class</span> <span class="nc">MoveFast</span><span class="p">(</span><span class="n">Blessing</span><span class="p">):</span>
+<div class="viewcode-block" id="MoveFast"><a class="viewcode-back" href="../../../../scripts.nqp.actions.html#scripts.nqp.actions.blessing.MoveFast">[docs]</a><span class="k">class</span> <span class="nc">MoveFast</span><span class="p">(</span><span class="n">SkillModifier</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
-<div class="viewcode-block" id="NoMove"><a class="viewcode-back" href="../../../../scripts.nqp.actions.html#scripts.nqp.actions.blessing.NoMove">[docs]</a><span class="k">class</span> <span class="nc">NoMove</span><span class="p">(</span><span class="n">Blessing</span><span class="p">):</span>
+<div class="viewcode-block" id="NoMove"><a class="viewcode-back" href="../../../../scripts.nqp.actions.html#scripts.nqp.actions.blessing.NoMove">[docs]</a><span class="k">class</span> <span class="nc">NoMove</span><span class="p">(</span><span class="n">SkillModifier</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 <span class="sd">"""</span>
@@ -273,7 +273,7 @@
 <span class="sd">in a way that the JSON can't. The move target must be changed to the owner</span>
 <span class="sd">or this blessing won't work with skills that don't self-target.</span>
 <span class="sd">"""</span>
-<div class="viewcode-block" id="AttackMove"><a class="viewcode-back" href="../../../../scripts.nqp.actions.html#scripts.nqp.actions.blessing.AttackMove">[docs]</a><span class="k">class</span> <span class="nc">AttackMove</span><span class="p">(</span><span class="n">Blessing</span><span class="p">):</span>
+<div class="viewcode-block" id="AttackMove"><a class="viewcode-back" href="../../../../scripts.nqp.actions.html#scripts.nqp.actions.blessing.AttackMove">[docs]</a><span class="k">class</span> <span class="nc">AttackMove</span><span class="p">(</span><span class="n">SkillModifier</span><span class="p">):</span>
 <div class="viewcode-block" id="AttackMove.apply"><a class="viewcode-back" href="../../../../scripts.nqp.actions.html#scripts.nqp.actions.blessing.AttackMove.apply">[docs]</a>    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">effects</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Effect</span><span class="p">],</span> <span class="n">owner</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">effects</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span> <span class="n">owner</span><span class="p">)</span></div></div>
 </pre></div>

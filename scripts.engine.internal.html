@@ -258,6 +258,8 @@
         </li>
         <li class="md-nav__item"><a href="#module-scripts.engine.internal.library" class="md-nav__link">scripts.engine.internal.library module</a>
         </li>
+        <li class="md-nav__item"><a href="#module-scripts.engine.internal.skill_modifier" class="md-nav__link">scripts.engine.internal.skill_modifier module</a>
+        </li>
         <li class="md-nav__item"><a href="#module-scripts.engine.internal" class="md-nav__link">Module contents</a>
         </li></ul>
             </nav>
@@ -431,7 +433,7 @@ times.</p>
 <dd></dd></dl>
 <dl class="py attribute">
 <dt id="scripts.engine.internal.action.Skill.blessings">
-<code class="sig-name descname">blessings</code><em class="property">: List<span class="p">[</span>Blessings<span class="p">]</span></em><a class="headerlink" href="#scripts.engine.internal.action.Skill.blessings" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">blessings</code><em class="property">: List<span class="p">[</span>SkillModifier<span class="p">]</span></em><a class="headerlink" href="#scripts.engine.internal.action.Skill.blessings" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 <dl class="py attribute">
 <dt id="scripts.engine.internal.action.Skill.cast_tags">
@@ -2243,13 +2245,13 @@ Also used to hold and map data from json.</p>
 </dd></dl>
 <dl class="py class">
 <dt id="scripts.engine.internal.definition.SkillData">
-<em class="property">class </em><code class="sig-name descname">SkillData</code><span class="sig-paren">(</span><em class="sig-param">name: str = 'none'</em>, <em class="sig-param">description: str = 'none'</em>, <em class="sig-param">icon_path: str = 'none'</em>, <em class="sig-param">cast_tags: List[TileTagType] = &lt;factory&gt;</em>, <em class="sig-param">target_tags: List[TileTagType] = &lt;factory&gt;</em>, <em class="sig-param">resource_type: ResourceType = 'stamina'</em>, <em class="sig-param">resource_cost: int = 0</em>, <em class="sig-param">time_cost: int = 0</em>, <em class="sig-param">cooldown: int = 0</em>, <em class="sig-param">targeting_method: TargetingMethodType = 'tile'</em>, <em class="sig-param">target_directions: List[DirectionType] = &lt;factory&gt;</em>, <em class="sig-param">range: int = 1</em>, <em class="sig-param">shape: ShapeType = 'target'</em>, <em class="sig-param">shape_size: int = 1</em>, <em class="sig-param">uses_projectile: bool = False</em>, <em class="sig-param">projectile_data: Optional[scripts.engine.internal.definition.ProjectileData] = None</em>, <em class="sig-param">is_delayed: bool = False</em>, <em class="sig-param">delayed_skill_data: Optional[scripts.engine.internal.definition.DelayedSkillData] = None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/engine/internal/definition.html#SkillData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.internal.definition.SkillData" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">SkillData</code><span class="sig-paren">(</span><em class="sig-param">name: str = 'none'</em>, <em class="sig-param">description: str = 'none'</em>, <em class="sig-param">icon_path: str = 'none'</em>, <em class="sig-param">cast_tags: List[TileTagType] = &lt;factory&gt;</em>, <em class="sig-param">target_tags: List[TileTagType] = &lt;factory&gt;</em>, <em class="sig-param">resource_type: ResourceType = 'stamina'</em>, <em class="sig-param">resource_cost: int = 0</em>, <em class="sig-param">time_cost: int = 0</em>, <em class="sig-param">cooldown: int = 0</em>, <em class="sig-param">targeting_method: TargetingMethodType = 'tile'</em>, <em class="sig-param">target_directions: List[DirectionType] = &lt;factory&gt;</em>, <em class="sig-param">range: int = 1</em>, <em class="sig-param">shape: ShapeType = 'target'</em>, <em class="sig-param">shape_size: int = 1</em>, <em class="sig-param">uses_projectile: bool = False</em>, <em class="sig-param">projectile_data: Optional[scripts.engine.internal.definition.ProjectileData] = None</em>, <em class="sig-param">is_delayed: bool = False</em>, <em class="sig-param">delayed_skill_data: Optional[scripts.engine.internal.definition.DelayedSkillData] = None</em>, <em class="sig-param">types: List[str] = &lt;factory&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/engine/internal/definition.html#SkillData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.internal.definition.SkillData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Data class for a skill.
 Also used to hold and map data from json.</p>
 <dl class="py method">
 <dt id="scripts.engine.internal.definition.SkillData.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">name: str = 'none'</em>, <em class="sig-param">description: str = 'none'</em>, <em class="sig-param">icon_path: str = 'none'</em>, <em class="sig-param">cast_tags: List[TileTagType] = &lt;factory&gt;</em>, <em class="sig-param">target_tags: List[TileTagType] = &lt;factory&gt;</em>, <em class="sig-param">resource_type: ResourceType = 'stamina'</em>, <em class="sig-param">resource_cost: int = 0</em>, <em class="sig-param">time_cost: int = 0</em>, <em class="sig-param">cooldown: int = 0</em>, <em class="sig-param">targeting_method: TargetingMethodType = 'tile'</em>, <em class="sig-param">target_directions: List[DirectionType] = &lt;factory&gt;</em>, <em class="sig-param">range: int = 1</em>, <em class="sig-param">shape: ShapeType = 'target'</em>, <em class="sig-param">shape_size: int = 1</em>, <em class="sig-param">uses_projectile: bool = False</em>, <em class="sig-param">projectile_data: Optional[scripts.engine.internal.definition.ProjectileData] = None</em>, <em class="sig-param">is_delayed: bool = False</em>, <em class="sig-param">delayed_skill_data: Optional[scripts.engine.internal.definition.DelayedSkillData] = None</em><span class="sig-paren">)</span> → <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a><a class="headerlink" href="#scripts.engine.internal.definition.SkillData.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">name: str = 'none'</em>, <em class="sig-param">description: str = 'none'</em>, <em class="sig-param">icon_path: str = 'none'</em>, <em class="sig-param">cast_tags: List[TileTagType] = &lt;factory&gt;</em>, <em class="sig-param">target_tags: List[TileTagType] = &lt;factory&gt;</em>, <em class="sig-param">resource_type: ResourceType = 'stamina'</em>, <em class="sig-param">resource_cost: int = 0</em>, <em class="sig-param">time_cost: int = 0</em>, <em class="sig-param">cooldown: int = 0</em>, <em class="sig-param">targeting_method: TargetingMethodType = 'tile'</em>, <em class="sig-param">target_directions: List[DirectionType] = &lt;factory&gt;</em>, <em class="sig-param">range: int = 1</em>, <em class="sig-param">shape: ShapeType = 'target'</em>, <em class="sig-param">shape_size: int = 1</em>, <em class="sig-param">uses_projectile: bool = False</em>, <em class="sig-param">projectile_data: Optional[scripts.engine.internal.definition.ProjectileData] = None</em>, <em class="sig-param">is_delayed: bool = False</em>, <em class="sig-param">delayed_skill_data: Optional[scripts.engine.internal.definition.DelayedSkillData] = None</em>, <em class="sig-param">types: List[str] = &lt;factory&gt;</em><span class="sig-paren">)</span> → <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a><a class="headerlink" href="#scripts.engine.internal.definition.SkillData.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 <dl class="py attribute">
@@ -2319,6 +2321,10 @@ Also used to hold and map data from json.</p>
 <dl class="py attribute">
 <dt id="scripts.engine.internal.definition.SkillData.time_cost">
 <code class="sig-name descname">time_cost</code><em class="property">: <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></em><em class="property"> = 0</em><a class="headerlink" href="#scripts.engine.internal.definition.SkillData.time_cost" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt id="scripts.engine.internal.definition.SkillData.types">
+<code class="sig-name descname">types</code><em class="property">: List<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></em><a class="headerlink" href="#scripts.engine.internal.definition.SkillData.types" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 <dl class="py attribute">
 <dt id="scripts.engine.internal.definition.SkillData.uses_projectile">
@@ -2879,6 +2885,80 @@ version of the object or raise a <code class="docutils literal notranslate"><spa
 <dt id="scripts.engine.internal.library.refresh_library">
 <code class="sig-name descname">refresh_library</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/engine/internal/library.html#refresh_library"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.internal.library.refresh_library" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load all json data into the library.</p>
+</dd></dl>
+
+
+<span id="scripts-engine-internal-skill-modifier-module"></span><h2 id="module-scripts.engine.internal.skill_modifier">scripts.engine.internal.skill_modifier module<a class="headerlink" href="#module-scripts.engine.internal.skill_modifier" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="scripts.engine.internal.skill_modifier.SkillModifier">
+<em class="property">class </em><code class="sig-name descname">SkillModifier</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">owner</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/engine/internal/skill_modifier.html#SkillModifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.internal.skill_modifier.SkillModifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>The base class for blessings. Blessings modify skills through the effects applied.</p>
+<dl class="py method">
+<dt id="scripts.engine.internal.skill_modifier.SkillModifier.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">owner</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/engine/internal/skill_modifier.html#SkillModifier.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.internal.skill_modifier.SkillModifier.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt id="scripts.engine.internal.skill_modifier.SkillModifier.add_effects">
+<code class="sig-name descname">add_effects</code><em class="property">: List<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></em><a class="headerlink" href="#scripts.engine.internal.skill_modifier.SkillModifier.add_effects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py method">
+<dt id="scripts.engine.internal.skill_modifier.SkillModifier.apply">
+<code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">effects</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="scripts.engine.core.html#scripts.engine.core.effect.Effect" title="scripts.engine.core.effect.Effect">scripts.engine.core.effect.Effect</a><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">owner</span></em>, <em class="sig-param"><span class="n">target</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/engine/internal/skill_modifier.html#SkillModifier.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.internal.skill_modifier.SkillModifier.apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the core function of the blessing. It takes the effect stack and modifies it with the blessing.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt id="scripts.engine.internal.skill_modifier.SkillModifier.custom_args">
+<code class="sig-name descname">custom_args</code><em class="property"> = {}</em><a class="headerlink" href="#scripts.engine.internal.skill_modifier.SkillModifier.custom_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt id="scripts.engine.internal.skill_modifier.SkillModifier.description">
+<code class="sig-name descname">description</code><em class="property">: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></em><a class="headerlink" href="#scripts.engine.internal.skill_modifier.SkillModifier.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py method">
+<dt id="scripts.engine.internal.skill_modifier.SkillModifier.involved_effects">
+<em class="property">property </em><code class="sig-name descname">involved_effects</code><a class="headerlink" href="#scripts.engine.internal.skill_modifier.SkillModifier.involved_effects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the set of effects involved in the blessing.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt id="scripts.engine.internal.skill_modifier.SkillModifier.level">
+<code class="sig-name descname">level</code><em class="property">: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></em><a class="headerlink" href="#scripts.engine.internal.skill_modifier.SkillModifier.level" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt id="scripts.engine.internal.skill_modifier.SkillModifier.modify_effects_set">
+<code class="sig-name descname">modify_effects_set</code><em class="property">: List<span class="p">[</span>Dict<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">, </span>Any<span class="p">]</span><span class="p">]</span></em><a class="headerlink" href="#scripts.engine.internal.skill_modifier.SkillModifier.modify_effects_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt id="scripts.engine.internal.skill_modifier.SkillModifier.modify_effects_tweak_flat">
+<code class="sig-name descname">modify_effects_tweak_flat</code><em class="property">: List<span class="p">[</span>Dict<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">, </span>Any<span class="p">]</span><span class="p">]</span></em><a class="headerlink" href="#scripts.engine.internal.skill_modifier.SkillModifier.modify_effects_tweak_flat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt id="scripts.engine.internal.skill_modifier.SkillModifier.modify_effects_tweak_percent">
+<code class="sig-name descname">modify_effects_tweak_percent</code><em class="property">: List<span class="p">[</span>Dict<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">, </span>Any<span class="p">]</span><span class="p">]</span></em><a class="headerlink" href="#scripts.engine.internal.skill_modifier.SkillModifier.modify_effects_tweak_percent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt id="scripts.engine.internal.skill_modifier.SkillModifier.name">
+<code class="sig-name descname">name</code><em class="property">: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></em><a class="headerlink" href="#scripts.engine.internal.skill_modifier.SkillModifier.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt id="scripts.engine.internal.skill_modifier.SkillModifier.removable">
+<code class="sig-name descname">removable</code><em class="property">: <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></em><a class="headerlink" href="#scripts.engine.internal.skill_modifier.SkillModifier.removable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt id="scripts.engine.internal.skill_modifier.SkillModifier.remove_effects">
+<code class="sig-name descname">remove_effects</code><em class="property">: List<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></em><a class="headerlink" href="#scripts.engine.internal.skill_modifier.SkillModifier.remove_effects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py method">
+<dt id="scripts.engine.internal.skill_modifier.SkillModifier.roll_level">
+<code class="sig-name descname">roll_level</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/engine/internal/skill_modifier.html#SkillModifier.roll_level"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.internal.skill_modifier.SkillModifier.roll_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs the level selection algorithm and updates attributes with the applied level.</p>
+</dd></dl>
+<dl class="py method">
+<dt id="scripts.engine.internal.skill_modifier.SkillModifier.set_level">
+<code class="sig-name descname">set_level</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">level</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/engine/internal/skill_modifier.html#SkillModifier.set_level"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scripts.engine.internal.skill_modifier.SkillModifier.set_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Refreshes the class attributes with the data for the specific blessing level.</p>
+</dd></dl>
 </dd></dl>
 
 

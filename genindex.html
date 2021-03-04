@@ -324,8 +324,6 @@
 </li>
         <li><a href="engine/internal/action.html#scripts.engine.internal.action.Behaviour.__init__">(Behaviour method)</a>, <a href="scripts.engine.internal.html#scripts.engine.internal.action.Behaviour.__init__">[1]</a>
 </li>
-        <li><a href="scripts.engine.core.html#scripts.engine.core.blessing.Blessing.__init__">(Blessing method)</a>
-</li>
         <li><a href="scripts.nqp.ui_elements.html#scripts.nqp.ui_elements.camera.Camera.__init__">(Camera method)</a>
 </li>
         <li><a href="scripts.engine.internal.html#scripts.engine.internal.event.ChangeMapEvent.__init__">(ChangeMapEvent method)</a>
@@ -461,6 +459,8 @@
         <li><a href="nqp/elements/skill_bar.html#scripts.nqp.ui_elements.skill_bar.SkillBar.__init__">(SkillBar method)</a>, <a href="scripts.nqp.ui_elements.html#scripts.nqp.ui_elements.skill_bar.SkillBar.__init__">[1]</a>
 </li>
         <li><a href="scripts.engine.internal.html#scripts.engine.internal.definition.SkillData.__init__">(SkillData method)</a>
+</li>
+        <li><a href="scripts.engine.internal.html#scripts.engine.internal.skill_modifier.SkillModifier.__init__">(SkillModifier method)</a>
 </li>
         <li><a href="scripts.engine.internal.html#scripts.engine.internal.event.StartGameEvent.__init__">(StartGameEvent method)</a>
 </li>
@@ -632,11 +632,11 @@
       <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.AttackMove.add_effects">add_effects (AttackMove attribute)</a>
 
       <ul>
-        <li><a href="scripts.engine.core.html#scripts.engine.core.blessing.Blessing.add_effects">(Blessing attribute)</a>
-</li>
         <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.MoveFast.add_effects">(MoveFast attribute)</a>
 </li>
         <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.NoMove.add_effects">(NoMove attribute)</a>
+</li>
+        <li><a href="scripts.engine.internal.html#scripts.engine.internal.skill_modifier.SkillModifier.add_effects">(SkillModifier attribute)</a>
 </li>
       </ul></li>
       <li><a href="engine/core/world.html#scripts.engine.core.world.add_immunity">add_immunity() (in module scripts.engine.core.world)</a>, <a href="scripts.engine.core.html#scripts.engine.core.world.add_immunity">[1]</a>
@@ -734,9 +734,9 @@
       <ul>
         <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.AttackMove.apply">(AttackMove method)</a>
 </li>
-        <li><a href="scripts.engine.core.html#scripts.engine.core.blessing.Blessing.apply">(Blessing method)</a>
-</li>
         <li><a href="engine/internal/action.html#scripts.engine.internal.action.Skill.apply">(Skill method)</a>, <a href="scripts.engine.internal.html#scripts.engine.internal.action.Skill.apply">[1]</a>
+</li>
+        <li><a href="scripts.engine.internal.html#scripts.engine.internal.skill_modifier.SkillModifier.apply">(SkillModifier method)</a>
 </li>
       </ul></li>
       <li><a href="scripts.engine.internal.html#scripts.engine.internal.constant.EffectType.APPLY_AFFLICTION">APPLY_AFFLICTION (EffectType attribute)</a>
@@ -794,8 +794,6 @@
       <li><a href="engine/internal/action.html#scripts.engine.internal.action.Behaviour">Behaviour (class in scripts.engine.internal.action)</a>, <a href="scripts.engine.internal.html#scripts.engine.internal.action.Behaviour">[1]</a>
 </li>
       <li><a href="scripts.engine.internal.html#scripts.engine.internal.definition.ActorData.behaviour_name">behaviour_name (ActorData attribute)</a>
-</li>
-      <li><a href="scripts.engine.core.html#scripts.engine.core.blessing.Blessing">Blessing (class in scripts.engine.core.blessing)</a>
 </li>
       <li><a href="scripts.engine.internal.html#scripts.engine.internal.action.Skill.blessings">blessings (Skill attribute)</a>
 </li>
@@ -1007,7 +1005,7 @@
 </li>
       <li><a href="scripts.engine.internal.html#scripts.engine.internal.constant.Shape.CROSS">CROSS (Shape attribute)</a>
 </li>
-      <li><a href="scripts.engine.core.html#scripts.engine.core.blessing.Blessing.custom_args">custom_args (Blessing attribute)</a>
+      <li><a href="scripts.engine.internal.html#scripts.engine.internal.skill_modifier.SkillModifier.custom_args">custom_args (SkillModifier attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1096,8 +1094,6 @@
 </li>
         <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.AttackMove.description">(AttackMove attribute)</a>
 </li>
-        <li><a href="scripts.engine.core.html#scripts.engine.core.blessing.Blessing.description">(Blessing attribute)</a>
-</li>
         <li><a href="scripts.engine.internal.html#scripts.engine.internal.definition.GodData.description">(GodData attribute)</a>
 </li>
         <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.MoveFast.description">(MoveFast attribute)</a>
@@ -1105,6 +1101,8 @@
         <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.NoMove.description">(NoMove attribute)</a>
 </li>
         <li><a href="scripts.engine.internal.html#scripts.engine.internal.definition.SkillData.description">(SkillData attribute)</a>
+</li>
+        <li><a href="scripts.engine.internal.html#scripts.engine.internal.skill_modifier.SkillModifier.description">(SkillModifier attribute)</a>
 </li>
         <li><a href="scripts.engine.internal.html#scripts.engine.internal.definition.TerrainData.description">(TerrainData attribute)</a>
 </li>
@@ -1657,7 +1655,7 @@
 </li>
       <li><a href="engine/core/dungen.html#scripts.engine.core.dungen.RoomConcept.intersects">intersects() (RoomConcept method)</a>, <a href="scripts.engine.core.html#scripts.engine.core.dungen.RoomConcept.intersects">[1]</a>
 </li>
-      <li><a href="scripts.engine.core.html#scripts.engine.core.blessing.Blessing.involved_effects">involved_effects() (Blessing property)</a>
+      <li><a href="scripts.engine.internal.html#scripts.engine.internal.skill_modifier.SkillModifier.involved_effects">involved_effects() (SkillModifier property)</a>
 </li>
       <li><a href="engine/core/utility.html#scripts.engine.core.utility.is_close">is_close() (in module scripts.engine.core.utility)</a>, <a href="scripts.engine.core.html#scripts.engine.core.utility.is_close">[1]</a>
 </li>
@@ -1758,11 +1756,11 @@
       <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.AttackMove.level">level (AttackMove attribute)</a>
 
       <ul>
-        <li><a href="scripts.engine.core.html#scripts.engine.core.blessing.Blessing.level">(Blessing attribute)</a>
-</li>
         <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.MoveFast.level">(MoveFast attribute)</a>
 </li>
         <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.NoMove.level">(NoMove attribute)</a>
+</li>
+        <li><a href="scripts.engine.internal.html#scripts.engine.internal.skill_modifier.SkillModifier.level">(SkillModifier attribute)</a>
 </li>
       </ul></li>
       <li><a href="scripts.engine.core.html#scripts.engine.core.component.Lifespan">Lifespan (class in scripts.engine.core.component)</a>
@@ -1890,31 +1888,31 @@
       <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.AttackMove.modify_effects_set">modify_effects_set (AttackMove attribute)</a>
 
       <ul>
-        <li><a href="scripts.engine.core.html#scripts.engine.core.blessing.Blessing.modify_effects_set">(Blessing attribute)</a>
-</li>
         <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.MoveFast.modify_effects_set">(MoveFast attribute)</a>
 </li>
         <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.NoMove.modify_effects_set">(NoMove attribute)</a>
+</li>
+        <li><a href="scripts.engine.internal.html#scripts.engine.internal.skill_modifier.SkillModifier.modify_effects_set">(SkillModifier attribute)</a>
 </li>
       </ul></li>
       <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.AttackMove.modify_effects_tweak_flat">modify_effects_tweak_flat (AttackMove attribute)</a>
 
       <ul>
-        <li><a href="scripts.engine.core.html#scripts.engine.core.blessing.Blessing.modify_effects_tweak_flat">(Blessing attribute)</a>
-</li>
         <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.MoveFast.modify_effects_tweak_flat">(MoveFast attribute)</a>
 </li>
         <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.NoMove.modify_effects_tweak_flat">(NoMove attribute)</a>
+</li>
+        <li><a href="scripts.engine.internal.html#scripts.engine.internal.skill_modifier.SkillModifier.modify_effects_tweak_flat">(SkillModifier attribute)</a>
 </li>
       </ul></li>
       <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.AttackMove.modify_effects_tweak_percent">modify_effects_tweak_percent (AttackMove attribute)</a>
 
       <ul>
-        <li><a href="scripts.engine.core.html#scripts.engine.core.blessing.Blessing.modify_effects_tweak_percent">(Blessing attribute)</a>
-</li>
         <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.MoveFast.modify_effects_tweak_percent">(MoveFast attribute)</a>
 </li>
         <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.NoMove.modify_effects_tweak_percent">(NoMove attribute)</a>
+</li>
+        <li><a href="scripts.engine.internal.html#scripts.engine.internal.skill_modifier.SkillModifier.modify_effects_tweak_percent">(SkillModifier attribute)</a>
 </li>
       </ul></li>
       <li>
@@ -1926,8 +1924,6 @@
         <li><a href="scripts.engine.html#module-scripts.engine">scripts.engine</a>
 </li>
         <li><a href="scripts.engine.core.html#module-scripts.engine.core">scripts.engine.core</a>
-</li>
-        <li><a href="scripts.engine.core.html#module-scripts.engine.core.blessing">scripts.engine.core.blessing</a>
 </li>
         <li><a href="engine/core/chronicle.html#module-scripts.engine.core.chronicle">scripts.engine.core.chronicle</a>, <a href="scripts.engine.core.html#module-scripts.engine.core.chronicle">[1]</a>
 </li>
@@ -1968,6 +1964,8 @@
         <li><a href="engine/internal/extend_json.html#module-scripts.engine.internal.extend_json">scripts.engine.internal.extend_json</a>, <a href="scripts.engine.internal.html#module-scripts.engine.internal.extend_json">[1]</a>
 </li>
         <li><a href="engine/internal/library.html#module-scripts.engine.internal.library">scripts.engine.internal.library</a>, <a href="scripts.engine.internal.html#module-scripts.engine.internal.library">[1]</a>
+</li>
+        <li><a href="scripts.engine.internal.html#module-scripts.engine.internal.skill_modifier">scripts.engine.internal.skill_modifier</a>
 </li>
         <li><a href="scripts.engine.widgets.html#module-scripts.engine.widgets">scripts.engine.widgets</a>
 </li>
@@ -2097,8 +2095,6 @@
 </li>
         <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.AttackMove.name">(AttackMove attribute)</a>
 </li>
-        <li><a href="scripts.engine.core.html#scripts.engine.core.blessing.Blessing.name">(Blessing attribute)</a>
-</li>
         <li><a href="scripts.engine.internal.html#scripts.engine.internal.definition.GodData.name">(GodData attribute)</a>
 </li>
         <li><a href="scripts.engine.internal.html#scripts.engine.internal.definition.MapData.name">(MapData attribute)</a>
@@ -2112,6 +2108,8 @@
         <li><a href="scripts.engine.internal.html#scripts.engine.internal.definition.SecondaryStatModData.name">(SecondaryStatModData attribute)</a>
 </li>
         <li><a href="scripts.engine.internal.html#scripts.engine.internal.definition.SkillData.name">(SkillData attribute)</a>
+</li>
+        <li><a href="scripts.engine.internal.html#scripts.engine.internal.skill_modifier.SkillModifier.name">(SkillModifier attribute)</a>
 </li>
         <li><a href="scripts.engine.internal.html#scripts.engine.internal.definition.TerrainData.name">(TerrainData attribute)</a>
 </li>
@@ -2367,11 +2365,11 @@
       <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.AttackMove.removable">removable (AttackMove attribute)</a>
 
       <ul>
-        <li><a href="scripts.engine.core.html#scripts.engine.core.blessing.Blessing.removable">(Blessing attribute)</a>
-</li>
         <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.MoveFast.removable">(MoveFast attribute)</a>
 </li>
         <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.NoMove.removable">(NoMove attribute)</a>
+</li>
+        <li><a href="scripts.engine.internal.html#scripts.engine.internal.skill_modifier.SkillModifier.removable">(SkillModifier attribute)</a>
 </li>
       </ul></li>
       <li><a href="scripts.engine.core.html#scripts.engine.core.component.Afflictions.remove">remove() (Afflictions method)</a>
@@ -2385,11 +2383,11 @@
       <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.AttackMove.remove_effects">remove_effects (AttackMove attribute)</a>
 
       <ul>
-        <li><a href="scripts.engine.core.html#scripts.engine.core.blessing.Blessing.remove_effects">(Blessing attribute)</a>
-</li>
         <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.MoveFast.remove_effects">(MoveFast attribute)</a>
 </li>
         <li><a href="scripts.nqp.actions.html#scripts.nqp.actions.blessing.NoMove.remove_effects">(NoMove attribute)</a>
+</li>
+        <li><a href="scripts.engine.internal.html#scripts.engine.internal.skill_modifier.SkillModifier.remove_effects">(SkillModifier attribute)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -2468,7 +2466,7 @@
 </li>
       <li><a href="engine/core/utility.html#scripts.engine.core.utility.roll">roll() (in module scripts.engine.core.utility)</a>, <a href="scripts.engine.core.html#scripts.engine.core.utility.roll">[1]</a>
 </li>
-      <li><a href="scripts.engine.core.html#scripts.engine.core.blessing.Blessing.roll_level">roll_level() (Blessing method)</a>
+      <li><a href="scripts.engine.internal.html#scripts.engine.internal.skill_modifier.SkillModifier.roll_level">roll_level() (SkillModifier method)</a>
 </li>
       <li><a href="engine/core/dungen.html#scripts.engine.core.dungen.RoomConcept">RoomConcept (class in scripts.engine.core.dungen)</a>, <a href="scripts.engine.core.html#scripts.engine.core.dungen.RoomConcept">[1]</a>
 </li>
@@ -2515,13 +2513,6 @@
 
       <ul>
         <li><a href="scripts.engine.core.html#module-scripts.engine.core">module</a>
-</li>
-      </ul></li>
-      <li>
-    scripts.engine.core.blessing
-
-      <ul>
-        <li><a href="scripts.engine.core.html#module-scripts.engine.core.blessing">module</a>
 </li>
       </ul></li>
       <li>
@@ -2662,6 +2653,13 @@
 
       <ul>
         <li><a href="engine/internal/library.html#module-scripts.engine.internal.library">module</a>, <a href="scripts.engine.internal.html#module-scripts.engine.internal.library">[1]</a>
+</li>
+      </ul></li>
+      <li>
+    scripts.engine.internal.skill_modifier
+
+      <ul>
+        <li><a href="scripts.engine.internal.html#module-scripts.engine.internal.skill_modifier">module</a>
 </li>
       </ul></li>
       <li>
@@ -2969,7 +2967,7 @@
 </li>
       <li><a href="engine/internal/debug.html#scripts.engine.internal.debug.set_fps_visibility">set_fps_visibility() (in module scripts.engine.internal.debug)</a>, <a href="scripts.engine.internal.html#scripts.engine.internal.debug.set_fps_visibility">[1]</a>
 </li>
-      <li><a href="scripts.engine.core.html#scripts.engine.core.blessing.Blessing.set_level">set_level() (Blessing method)</a>
+      <li><a href="scripts.engine.internal.html#scripts.engine.internal.skill_modifier.SkillModifier.set_level">set_level() (SkillModifier method)</a>
 </li>
       <li><a href="engine/world_objects/lighting.html#scripts.engine.world_objects.lighting.set_mask_alpha">set_mask_alpha() (in module scripts.engine.world_objects.lighting)</a>, <a href="scripts.engine.world_objects.html#scripts.engine.world_objects.lighting.set_mask_alpha">[1]</a>
 </li>
@@ -3094,6 +3092,8 @@
       <li><a href="nqp/elements/skill_bar.html#scripts.nqp.ui_elements.skill_bar.SkillBar">SkillBar (class in scripts.nqp.ui_elements.skill_bar)</a>, <a href="scripts.nqp.ui_elements.html#scripts.nqp.ui_elements.skill_bar.SkillBar">[1]</a>
 </li>
       <li><a href="engine/internal/definition.html#scripts.engine.internal.definition.SkillData">SkillData (class in scripts.engine.internal.definition)</a>, <a href="scripts.engine.internal.html#scripts.engine.internal.definition.SkillData">[1]</a>
+</li>
+      <li><a href="scripts.engine.internal.html#scripts.engine.internal.skill_modifier.SkillModifier">SkillModifier (class in scripts.engine.internal.skill_modifier)</a>
 </li>
       <li><a href="nqp/actions/behaviour.html#scripts.nqp.actions.behaviour.SkipTurn">SkipTurn (class in scripts.nqp.actions.behaviour)</a>, <a href="scripts.nqp.actions.html#scripts.nqp.actions.behaviour.SkipTurn">[1]</a>
 </li>
@@ -3293,10 +3293,10 @@
 </li>
       <li><a href="tests.engine.html#tests.engine.test_utility.test_is_close">test_is_close() (in module tests.engine.test_utility)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="tests.engine.html#tests.engine.test_utility.test_is_not_close">test_is_not_close() (in module tests.engine.test_utility)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="tests.engine.html#tests.engine.test_state.test_load_game">test_load_game() (in module tests.engine.test_state)</a>
 </li>
       <li><a href="tests.engine.html#tests.engine.test_effect.test_move_other_effect">test_move_other_effect() (in module tests.engine.test_effect)</a>
@@ -3433,6 +3433,8 @@
         <li><a href="scripts.engine.internal.html#scripts.engine.internal.definition.AfflictionData.triggers">(AfflictionData attribute)</a>
 </li>
       </ul></li>
+      <li><a href="scripts.engine.internal.html#scripts.engine.internal.definition.SkillData.types">types (SkillData attribute)</a>
+</li>
   </ul></td>
 </tr></table>
 
